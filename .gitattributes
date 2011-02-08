@@ -7,8 +7,10 @@ readme/license.txt -text svneol=unset#text/plain
 readme/upgrade.txt -text svneol=unset#text/plain
 screenshots/phpkd_vbabc_addevent_1.png -text
 screenshots/phpkd_vbabc_addevent_2.png -text
+screenshots/phpkd_vbabc_admincp_forum.png -text
 screenshots/phpkd_vbabc_admincp_nav.png -text
 screenshots/phpkd_vbabc_admincp_settings.png -text
+screenshots/phpkd_vbabc_admincp_usergroup.png -text
 screenshots/phpkd_vbabc_confirm_abandon.png -text
 screenshots/phpkd_vbabc_confirm_delete.png -text
 screenshots/phpkd_vbabc_confirm_openclose.png -text
