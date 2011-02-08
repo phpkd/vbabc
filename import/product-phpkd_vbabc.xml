@@ -658,8 +658,8 @@ $phpkd_vbabc->fetch_hook('threaddata_start', array('there' => $this));]]></phpco
 	</plugins>
 	<phrases>
 		<phrasetype name="Control Panel Home Pages" fieldname="cphome">
-			<phrase name="phpkd_vblvb_nav" date="1295708626" username="PHPKD" version="4.1.100"><![CDATA[Automated Bookie Center]]></phrase>
-			<phrase name="phpkd_vblvb_nav_settings" date="1295708551" username="PHPKD" version="4.1.100"><![CDATA[Settings]]></phrase>
+			<phrase name="phpkd_vbabc_nav" date="1295708626" username="PHPKD" version="4.1.100"><![CDATA[Automated Bookie Center]]></phrase>
+			<phrase name="phpkd_vbabc_nav_settings" date="1295708551" username="PHPKD" version="4.1.100"><![CDATA[Settings]]></phrase>
 		</phrasetype>
 		<phrasetype name="Control Panel Options" fieldname="cpoption">
 			<phrase name="phpkd_vbabc_bets_current" date="1292164791" username="PHPKD" version="4.1.100"><![CDATA[Current Bets]]></phrase>

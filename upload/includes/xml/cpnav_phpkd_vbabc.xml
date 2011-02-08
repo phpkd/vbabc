@@ -2,10 +2,10 @@
 
 <navgroups product="phpkd_vbabc" master="true">
 
-	<navgroup phrase="phpkd_vblvb_nav" permissions="phpkd_vblvb" hr="true" displayorder="105">
+	<navgroup phrase="phpkd_vbabc_nav" permissions="phpkd_vbabc" hr="true" displayorder="105">
 
 		<navoption displayorder="10">
-			<phrase>phpkd_vblvb_nav_settings</phrase>
+			<phrase>phpkd_vbabc_nav_settings</phrase>
 			<link>options.php?do=options&amp;dogroup=phpkd_vbabc</link>
 		</navoption>
 
