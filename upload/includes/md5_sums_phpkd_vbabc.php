@@ -16,18 +16,18 @@
 
 $md5_sums = array(
 	'/' => array(
-		'phpkd_vbabc.php'          => '8cb4f4017323fb06301c2591c0ea374e',
+		'phpkd_vbabc.php'          => 'b90553b057ceb7272302e3f3f6e71707',
 	),
 	'/includes/phpkd/vbabc' => array(
-		'class_core.php'           => '07fc7d9b1f318c37aaa12aa66ed66f16',
-		'class_dm.php'             => '80d6c21966f1294775a0506df0ca75ce',
-		'class_dml.php'            => 'd8782f5706674ad7846119aaf4f9b5ab',
-		'class_hooks.php'          => '3c351190c1b0e68b6b86a525481900de',
-		'class_install.php'        => '0c8b8ef1f2332ecf6c54a39c1f776aa3',
+		'class_core.php'           => 'c405fc5b641d6537e28d2178f22d0286',
+		'class_dm.php'             => '1094071a63faaaec5b47b64f25f28817',
+		'class_dml.php'            => '8d2a07da0aaef1d4529d3ae5c5845b73',
+		'class_hooks.php'          => '39d6cb7d2f026c284927e80e1f960882',
+		'class_install.php'        => '6eef0d46ef0ba69bf808dff82cc90163',
 	),
 	'/includes/xml' => array(
-		'bitfield_phpkd_vbabc.xml' => '47eace9704fab6bc532f4199d3ecd280',
-		'cpnav_phpkd_vbabc.xml'    => 'cb53cc2c304c876520bda89b738bfde3',
+		'bitfield_phpkd_vbabc.xml' => 'c824d409aa207470c2a791a8a45d38c2',
+		'cpnav_phpkd_vbabc.xml'    => 'b26fa7aefc487b941d7ce5dac7bbe67b',
 	),
 );
 
