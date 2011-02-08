@@ -1,1 +1,39 @@
 * text=auto !eol
+import/product-phpkd_vbabc.xml -text svneol=unset#text/plain
+languages/English.xml -text svneol=unset#text/plain
+readme/info.txt -text svneol=unset#text/plain
+readme/install.txt -text svneol=unset#text/plain
+readme/license.txt -text svneol=unset#text/plain
+readme/upgrade.txt -text svneol=unset#text/plain
+screenshots/phpkd_vbabc_addevent_1.png -text
+screenshots/phpkd_vbabc_addevent_2.png -text
+screenshots/phpkd_vbabc_admincp_nav.png -text
+screenshots/phpkd_vbabc_admincp_settings.png -text
+screenshots/phpkd_vbabc_confirm_abandon.png -text
+screenshots/phpkd_vbabc_confirm_delete.png -text
+screenshots/phpkd_vbabc_confirm_openclose.png -text
+screenshots/phpkd_vbabc_editevent.png -text
+screenshots/phpkd_vbabc_event_closed.png -text
+screenshots/phpkd_vbabc_event_open.png -text
+screenshots/phpkd_vbabc_event_settled.png -text
+screenshots/phpkd_vbabc_newthread.png -text
+screenshots/phpkd_vbabc_showthread_addlink.png -text
+screenshots/phpkd_vbabc_threadbit.png -text
+upload/images/phpkd/index.html -text svneol=unset#text/plain
+upload/images/phpkd/vbabc/abandon.png -text
+upload/images/phpkd/vbabc/delete.png -text
+upload/images/phpkd/vbabc/edit.png -text
+upload/images/phpkd/vbabc/index.html -text svneol=unset#text/plain
+upload/images/phpkd/vbabc/money.png -text
+upload/images/phpkd/vbabc/switch.png -text
+upload/includes/md5_sums_phpkd_vbabc.php -text
+upload/includes/phpkd/index.html -text svneol=unset#text/plain
+upload/includes/phpkd/vbabc/class_core.php -text
+upload/includes/phpkd/vbabc/class_dm.php -text
+upload/includes/phpkd/vbabc/class_dml.php -text
+upload/includes/phpkd/vbabc/class_hooks.php -text
+upload/includes/phpkd/vbabc/class_install.php -text
+upload/includes/phpkd/vbabc/index.html -text svneol=unset#text/plain
+upload/includes/xml/bitfield_phpkd_vbabc.xml -text svneol=unset#text/plain
+upload/includes/xml/cpnav_phpkd_vbabc.xml -text svneol=unset#text/plain
+upload/phpkd_vbabc.php -text

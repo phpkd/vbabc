@@ -1,0 +1,938 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<product productid="phpkd_vbabc" active="1">
+	<title><![CDATA[PHPKD - vB Automated Bookie Center 'Ultimate']]></title>
+	<description><![CDATA[This product is a 'bookmakers' or betting system that allows authorized users to post events & outcomes and then bet each others on it. Each outcome has it's own set of odds which can be modified through the life of an event, winning users awarded.]]></description>
+	<version>4.1.100</version>
+	<url>http://tools.phpkd.net/en/producthelp/url/vbabc/</url>
+	<versioncheckurl>http://tools.phpkd.net/en/producthelp/version/vbabc/</versioncheckurl>
+	<dependencies>
+		<dependency dependencytype="vbulletin" minversion="4.0.0" maxversion="4.1.99" />
+	</dependencies>
+	<codes>
+		<code version="*">
+			<installcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_install.php');
+$phpkd_vbabc = new PHPKD_VBABC_Install($vbulletin);
+$phpkd_vbabc->install_init($info);]]></installcode>
+			<uninstallcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_install.php');
+$phpkd_vbabc = new PHPKD_VBABC_Install($vbulletin);
+$phpkd_vbabc->uninstall_init();]]></uninstallcode>
+		</code>
+		<code version="4.1.100">
+			<installcode><![CDATA[$phpkd_vbabc->install_41100();]]></installcode>
+			<uninstallcode><![CDATA[$phpkd_vbabc->uninstall_41100();]]></uninstallcode>
+		</code>
+	</codes>
+	<templates>
+		<template name="phpkd_vbabc.css" templatetype="template" date="1296969188" username="PHPKD" version="4.1.100"><![CDATA[@charset "UTF-8";
+/* CSS Document */
+
+.formcontrols .blockrow input.option {
+	clear:{vb:stylevar left};
+	float:{vb:stylevar left};
+	margin-bottom:{vb:stylevar pollbars_margin_size};
+}
+
+.formcontrols .blockrow input.bets {
+	float:{vb:stylevar left};
+	margin-bottom:{vb:stylevar pollbars_margin_size};
+	margin-{vb:stylevar left}:{vb:stylevar pollbars_margin_size};
+}
+
+.eventbar1,
+.eventbar2,
+.eventbar3,
+.eventbar4,
+.eventbar5,
+.eventbar6 {
+	height:{vb:stylevar pollbar_height};
+        border:{vb:stylevar pollbar_border};
+	display:inline-block;
+}
+
+.eventbar1 {
+	background:{vb:stylevar pollbar1_background};
+}
+
+.eventbar2 {
+	background:{vb:stylevar pollbar2_background};
+}
+
+.eventbar3 {
+	background:{vb:stylevar pollbar3_background};
+}
+
+.eventbar4 {
+	background:{vb:stylevar pollbar4_background};
+}
+
+.eventbar5 {
+	background:{vb:stylevar pollbar5_background};
+}
+
+.eventbar6 {
+	background:{vb:stylevar pollbar6_background};
+}
+
+#eventinfo {
+	padding-bottom:0;
+	margin: {vb:stylevar padding} {vb:math {vb:stylevar padding}*5} 0;
+	-moz-border-radius: {vb:math {vb:stylevar padding}/2};
+	-webkit-border-radius: {vb:math {vb:stylevar padding}/2};
+	clear:both;
+	border: {vb:stylevar postbit_border};
+	padding-{vb:stylevar right}: {vb:stylevar padding};
+}
+
+.eventoptionsblock {
+	padding-{vb:stylevar left}: 120px; /*should be depending on the size of the icon or background */
+	background: {vb:stylevar poll_background}; /* position based on image not padding */
+}
+
+#eventinfo .blockhead, #eventinfo .eventsubhead, #eventinfo .blockrow, #eventinfo .blockfoot {
+	background:transparent;
+	border: 0;
+	padding: {vb:math {vb:stylevar padding}/2} 0 0; 
+	clear:both;
+}
+
+#eventinfo .blockbody {
+	background:transparent;
+}
+
+#eventinfo .blockhead {
+	width: 100%;
+	float: {vb:stylevar left};
+	clear:both;
+}
+
+#eventinfo .blockhead h2 {
+	font-weight: normal;
+	font-size: {vb:math {vb:stylevar font.fontSize}*1.5}px;
+	display: inline-block;
+	float: {vb:stylevar left};
+	color: {vb:stylevar diffremove_color};
+}
+
+#eventinfo .blockhead .stats {
+	float: {vb:stylevar right};
+	color: {vb:stylevar body_color};
+}
+
+#eventinfo .eventtitle {
+	color: {vb:stylevar body_color};
+}
+
+#eventinfo .blockhead .textcontrol {
+	border: 0;
+	padding: 0;
+	background: transparent;
+	display: inline-block;
+	float: {vb:stylevar left};
+	margin-{vb:stylevar left}: {vb:stylevar padding};
+}
+
+#eventinfo .blockhead .textcontrol img {
+	position: relative;
+	{vb:stylevar right}: 0;
+	top: {vb:math {vb:stylevar padding}-2};
+}
+
+#eventinfo .blockhead .textcontrol:hover img {
+	border-bottom: 1px dotted {vb:stylevar body_color};
+}
+
+#eventinfo .eventsubhead {
+	clear:both;
+	width: 100%;
+}
+
+#eventinfo .blockfoot {
+	margin-{vb:stylevar left}: {vb:math {vb:stylevar padding}*2};
+	padding-bottom: {vb:stylevar padding};
+}
+
+#eventoptions {
+	border: {vb:stylevar postbit_border};
+	padding: {vb:stylevar padding};
+	background: {vb:stylevar poll_background.backgroundColor};
+	margin: 0 auto;
+	margin-top: {vb:stylevar padding};
+	clear:both;
+	float: {vb:stylevar left};
+	width: {vb:math {vb:stylevar pollbars_result_bit_width}+30};
+}
+
+#eventoptions .blockrow {
+	border-bottom:{vb:stylevar mid_border.borderWidth}{vb:stylevar mid_border.borderUnits} {vb:stylevar mid_border.borderStyle} {vb:stylevar light_border.borderColor};
+}
+
+#eventoptions .blockrow:last-child {
+	border-bottom:none;
+}
+
+#eventoptions li {
+	width: 100%;
+	position: relative;
+        min-height: {vb:math {vb:stylevar pollbars_margin_size}*4}; 
+	float: {vb:stylevar left};
+}
+
+#eventoptions li p {
+        display:block;
+        position:relative;
+	width: {vb:math {vb:stylevar pollbars_result_bit_width}-40};
+        float: {vb:stylevar left};
+        bottom:0;
+}
+
+#eventoptions li .bets {
+	font-size:{vb:stylevar small_fontSize};
+        position:relative;
+        display:block;
+	float: {vb:stylevar right};
+	min-width: 400px;
+ 	width:{vb:stylevar pollbars_result_bit_width};
+}
+
+#eventoptions li .bets .eventbarwrapper {
+	position: relative;
+	width: {vb:math {vb:stylevar pollbars_result_bit_width}+13};
+        display:block;
+	float: {vb:stylevar left};
+	clear: {vb:stylevar right};
+}
+
+#eventoptions li .bets .eventbarwrapper div {
+	float:{vb:stylevar left};	
+}
+
+#eventoptions li .bets .eventcolumn {
+        color:body_color;
+        padding:{vb:math {vb:stylevar pollbars_margin_size}/5} {vb:stylevar pollbars_margin_size};
+        display: block;
+        margin-{vb:stylevar left}: {vb:stylevar pollbars_margin_size};
+        float: {vb:stylevar left};
+	clear: {vb:stylevar right};
+	min-width: 10%;
+	width: 10%;
+}
+
+#eventoptions li .percentbets {
+	position: absolute;
+	{vb:stylevar right}: 0px;
+        top:0px;
+}
+
+#eventoptions ol.commalist {
+	padding:{vb:math {vb:stylevar padding}-4} {vb:math {vb:stylevar padding}-4} {vb:math {vb:stylevar padding}-4} 0px;
+	margin-top:{vb:math {vb:stylevar padding}-4};
+	border-top:{vb:stylevar mid_border.borderWidth}{vb:stylevar mid_border.borderUnits} {vb:stylevar mid_border.borderStyle} {vb:stylevar light_border.borderColor};
+	font-size:{vb:stylevar small_fontSize};
+	clear:both;
+}
+
+#eventoptions ol.commalist li {
+	display: inline;
+	width: auto;
+}
+
+#eventinfo .blockfoot a,
+#eventinfo .blockfoot input {
+	vertical-align:middle;
+}
+
+ol.previewbit li {
+	list-style-type:decimal;
+	margin-{vb:stylevar left}:{vb:math {vb:stylevar pollbars_margin_size}*3};
+}
+]]></template>
+		<template name="phpkd_vbabc_event" templatetype="template" date="1297129960" username="PHPKD" version="4.1.100"><![CDATA[{vb:stylevar htmldoctype}
+<html xmlns="http://www.w3.org/1999/xhtml"<vb:if condition="$vboptions['enablefacebookconnect']"> xmlns:fb="http://www.facebook.com/2008/fbml"</vb:if> dir="{vb:stylevar textdirection}" lang="{vb:stylevar languagecode}">
+<head>
+	{vb:raw headinclude}
+	<title>{vb:raw threadinfo.prefix_plain_html} {vb:raw threadinfo.title} - {vb:raw eventinfo.pagetitle}</title>
+         {vb:raw headinclude_bottom}
+	<script type="text/javascript">
+	<!--
+	function phpkd_vbabc_confirm(msg, lnk)
+	{
+		// Output when OK is clicked
+		if (confirm(msg))
+		{
+			window.location = lnk;
+		}
+	}
+	//-->
+	</script>
+</head>
+<body>
+	{vb:raw header}
+	{vb:raw navbar}
+
+	<div id="pagetitle">
+		<h1>{vb:raw eventinfo.pagetitle}</h1>
+		<p class="description">{vb:rawphrase thread}: {vb:raw threadinfo.prefix_plain_html} <a href="{vb:link thread, {vb:raw threadinfo}}">{vb:raw threadinfo.title}</a></p>
+	</div>
+
+	<form action="{vb:raw vboptions.phpkd_vbabc_script}?do=eventpost&amp;t={vb:raw threadinfo.threadid}" method="post" class="vbform block">
+
+		{vb:raw eventpreview}
+
+		<h2 class="blockhead">{vb:rawphrase phpkd_vbabc_settings}<vb:if condition="$eventinfo['eventid'] AND $show['canmoderate']"><span style="float: {vb:stylevar right}"><vb:if condition="!$eventinfo['mstatus'] AND ($eventinfo['status'] == 'open' OR $eventinfo['status'] == 'closed')"><a href="javascript://" onclick="phpkd_vbabc_confirm('{vb:rawphrase phpkd_vbabc_confirm_openclose}', '{vb:raw vboptions.phpkd_vbabc_script}?{vb:raw session.sessionurl}do=eventopenclose&amp;eventid={vb:raw eventinfo.eventid}&amp;confirm=1'); return false"><img class="inlineimg" src="{vb:stylevar imgdir_phpkd_vbabc}/switch.png" alt="{vb:rawphrase phpkd_vbabc_eventopenclose}" title="{vb:rawphrase phpkd_vbabc_eventopenclose}"/></a> </vb:if><a href="javascript://" onclick="phpkd_vbabc_confirm('{vb:rawphrase phpkd_vbabc_confirm_delete}', '{vb:raw vboptions.phpkd_vbabc_script}?{vb:raw session.sessionurl}do=eventabandon&amp;eventid={vb:raw eventinfo.eventid}&amp;confirm=1'); return false"><img class="inlineimg" src="{vb:stylevar imgdir_phpkd_vbabc}/abandon.png" alt="{vb:rawphrase phpkd_vbabc_eventabandon}" title="{vb:rawphrase phpkd_vbabc_eventabandon}"/></a> <a href="javascript://" onclick="phpkd_vbabc_confirm('{vb:rawphrase phpkd_vbabc_confirm_abandon}', '{vb:raw vboptions.phpkd_vbabc_script}?{vb:raw session.sessionurl}do=eventdelete&amp;eventid={vb:raw eventinfo.eventid}&amp;confirm=1'); return false"><img class="inlineimg" src="{vb:stylevar imgdir_phpkd_vbabc}/delete.png" alt="{vb:rawphrase phpkd_vbabc_eventdelete}" title="{vb:rawphrase phpkd_vbabc_eventdelete}"/></a></span></vb:if></h2>
+		<div class="blockbody formcontrols">
+			<div class="blockrow">
+				<label for="title">{vb:rawphrase phpkd_vbabc_title}:</label>
+				<input type="text" class="primary textbox" id="title" name="title" value="{vb:raw eventinfo.title}" maxlength="{vb:raw vboptions.phpkd_vbabc_titlelength}" />
+			</div>
+
+			<div class="blockrow">
+				<label for="group">{vb:rawphrase phpkd_vbabc_group}:</label>
+				<input type="text" class="primary textbox" id="group" name="group" value="{vb:raw eventinfo.group}" maxlength="{vb:raw vboptions.phpkd_vbabc_titlelength}" />
+			</div>
+
+			<!--
+			<div class="blockrow">
+				<label for="chalengedcount">{vb:rawphrase phpkd_vbabc_chalengedcount}:</label>
+				<vb:if condition="$userinfo['userid']">
+					<a href="{vb:link member, {vb:raw userinfo}}">{vb:raw userinfo.username}</a>
+				<vb:else />
+					<input type="text" class="primary textbox" id="chalengedcount" name="chalengedcount" value="{vb:raw eventinfo.chalengedcount}" />
+					<p class="description">{vb:rawphrase phpkd_vbabc_chalengedcount_explain}</p>
+				</vb:if>
+			</div>
+			-->
+
+			<h3 class="blocksubhead">{vb:rawphrase phpkd_vbabc_options}</h3>
+			<div class="blockrow">
+				<label for="opts">{vb:rawphrase phpkd_vbabc_options_number}:</label>
+				<input type="text" class="primary textbox" id="opts" name="opts" value="{vb:raw eventinfo.opts}" size="5" />
+				<vb:if condition="$vboptions['phpkd_vbabc_maxopts']"><p class="description">{vb:rawphrase maximum}: {vb:raw vboptions.phpkd_vbabc_maxopts}</p></vb:if>
+				<input type="submit" class="button" value="{vb:rawphrase phpkd_vbabc_options_update}" name="updatenumber" />
+			</div>
+
+			<div class="blockrow">
+				<p class="description">{vb:rawphrase phpkd_vbabc_options_keep_short}</p>
+				{vb:raw eventoptions}
+			</div>
+
+			<div class="blockrow">
+				<label for="range_mm0">{vb:rawphrase phpkd_vbabc_timeout}:</label>
+				<div>
+					<ul class="multifield group floatcontainer">
+						<li><label for="range_mm0">{vb:rawphrase month}:</label> <select id="range_mm0" name="timeout[month]" title="{vb:rawphrase month}">{vb:raw timeout.months}</select></li>
+						<li><label for="range_dd0">{vb:rawphrase day}:</label> <select id="range_dd0" name="timeout[day]" title="{vb:rawphrase day}">{vb:raw timeout.days}</select></li>
+						<li><label for="range_yy0">{vb:rawphrase year}:</label> <select id="range_yy0" name="timeout[year]" title="{vb:rawphrase year}">{vb:raw timeout.years}</select></li>
+						<li class="timefield"><label for="range_tt0">{vb:rawphrase time}:</label> <select id="range_tt0" name="timeout[time]" title="{vb:rawphrase time}">{vb:raw timeout.times}</select></li>
+					</ul>
+				</div>
+				<!--
+				<label for="range_zone0">&nbsp;</label>
+				<div>
+					<label for="range_zone0">{vb:rawphrase phpkd_vbabc_zoneoffset}:</label>
+					<select name="timeout[zone]" class="primary" id="range_zone0" title="{vb:rawphrase phpkd_vbabc_zoneoffset}">
+						{vb:raw timeout.zones}
+					</select>
+				</div>
+				-->
+				<p class="description">{vb:rawphrase phpkd_vbabc_timeout_explain}</p>
+			</div>
+
+			<div class="blockrow">
+				<label for="range_mm1">{vb:rawphrase phpkd_vbabc_payafter}:</label>
+				<div>
+					<ul class="multifield group floatcontainer">
+						<li><label for="range_mm1">{vb:rawphrase month}:</label> <select id="range_mm1" name="payafter[month]" title="{vb:rawphrase month}">{vb:raw payafter.months}</select></li>
+						<li><label for="range_dd1">{vb:rawphrase day}:</label> <select id="range_dd1" name="payafter[day]" title="{vb:rawphrase day}">{vb:raw payafter.days}</select></li>
+						<li><label for="range_yy1">{vb:rawphrase year}:</label> <select id="range_yy1" name="payafter[year]" title="{vb:rawphrase year}">{vb:raw payafter.years}</select></li>
+						<li class="timefield"><label for="range_tt1">{vb:rawphrase time}:</label> <select id="range_tt1" name="payafter[time]" title="{vb:rawphrase time}">{vb:raw payafter.times}</select></li>
+					</ul>
+				</div>
+				<!--
+				<label for="range_zone1">&nbsp;</label>
+				<div>
+					<label for="range_zone1">{vb:rawphrase phpkd_vbabc_zoneoffset}:</label>
+					<select name="payafter[zone]" class="primary" id="range_zone1" title="{vb:rawphrase phpkd_vbabc_zoneoffset}">
+						{vb:raw payafter.zones}
+					</select>
+				</div>
+				-->
+				<p class="description">{vb:rawphrase phpkd_vbabc_payafter_explain, {vb:raw vboptions.phpkd_vbabc_settle_graceperiod}}</p>
+			</div>
+
+			<h3 class="blocksubhead">{vb:rawphrase miscellaneous_options}</h3>
+			<div class="blockrow">
+				<ul class="group checkradio" style="white-space: nowrap">
+					<li><label for="cb_multiple"><input type="checkbox" name="multiple" value="1" id="cb_multiple" {vb:raw checked.multiple} /> {vb:rawphrase phpkd_vbabc_allow_multiple_choice}</label></li>
+					<!-- <li><label for="cb_public"><input type="checkbox" name="public" value="1" id="cb_public" {vb:raw checked.public} /> {vb:rawphrase phpkd_vbabc_make_bets_public}</label></li> -->
+					<vb:if condition="$show['parseurl']"><li><label for="cb_parseurl"><input type="checkbox" name="parseurl" value="1" id="cb_parseurl" {vb:raw checked.parseurl} /> {vb:rawphrase automatically_parse_links_in_text}</label></li></vb:if>
+				</ul>
+			</div>
+		</div>
+
+		<div class="blockfoot actionbuttons">
+			<div class="group">
+				<input type="hidden" name="s" value="{vb:raw session.sessionhash}" />
+				<input type="hidden" name="securitytoken" value="{vb:raw bbuserinfo.securitytoken}" />
+				<input type="hidden" name="t" value="{vb:raw threadinfo.threadid}" />
+				<input type="hidden" name="eventid" value="{vb:raw eventinfo.eventid}" />
+				<input type="hidden" name="userid" value="{vb:raw userinfo.userid}" />
+				<input type="hidden" name="do" value="eventpost" />
+				<input type="submit" class="button" name="sbutton" value="{vb:rawphrase phpkd_vbabc_submit}" accesskey="s" />
+				<input type="submit" class="button" name="preview" value="{vb:rawphrase phpkd_vbabc_preview}" accesskey="r" />
+			</div>
+		</div>
+
+		{vb:raw forumrules}
+	</form>
+
+	{vb:raw footer}
+</body>
+</html>]]></template>
+		<template name="phpkd_vbabc_eventopen" templatetype="template" date="1297121743" username="PHPKD" version="4.1.100"><![CDATA[{vb:cssfile phpkd_vbabc.css}
+
+<script type="text/javascript">
+<!--
+function phpkd_vbabc_confirm(msg, lnk)
+{
+	// Output when OK is clicked
+	if (confirm(msg))
+	{
+		window.location = lnk;
+	}
+}
+//-->
+</script>
+
+<div id="eventinfo" class="eventoptionsblock">
+	<vb:if condition="$show['phpkd_vbabc_betallow'] OR $show['phpkd_vbabc_settleallow']"><form class="block" action="{vb:raw vboptions.phpkd_vbabc_script}?do=<vb:if condition="$show['phpkd_vbabc_betallow']">eventbet<vb:else />eventsettle</vb:if>&amp;eventid={vb:raw eventinfo.eventid}" method="post"></vb:if>
+		<div class="blockhead">
+			<h2>{vb:raw eventinfo.fstatus} {vb:rawphrase phpkd_vbabc_event}: <span class="eventtitle">{vb:raw eventinfo.title} ({vb:raw eventinfo.grouptitle})</span></h2>
+			<vb:if condition="$show['phpkd_vbabc_canedit']"><a class="textcontrol blockhead_info" href="{vb:raw vboptions.phpkd_vbabc_script}?{vb:raw session.sessionurl}do=eventedit&amp;eventid={vb:raw eventinfo.eventid}"><img class="inlineimg" src="{vb:stylevar imgdir_phpkd_vbabc}/edit.png" alt="{vb:rawphrase phpkd_vbabc_eventedit}" title="{vb:rawphrase phpkd_vbabc_eventedit}"/></a></vb:if><vb:if condition="$show['phpkd_vbabc_canmoderate']"><vb:if condition="!$eventinfo['mstatus'] AND ($eventinfo['status'] == 'open' OR $eventinfo['status'] == 'closed')"> <a class="textcontrol blockhead_info" href="javascript://" onclick="phpkd_vbabc_confirm('{vb:rawphrase phpkd_vbabc_confirm_openclose}', '{vb:raw vboptions.phpkd_vbabc_script}?{vb:raw session.sessionurl}do=eventopenclose&amp;eventid={vb:raw eventinfo.eventid}&amp;confirm=1'); return false"><img class="inlineimg" src="{vb:stylevar imgdir_phpkd_vbabc}/switch.png" alt="{vb:rawphrase phpkd_vbabc_eventopenclose}" title="{vb:rawphrase phpkd_vbabc_eventopenclose}"/></a></vb:if> <a class="textcontrol blockhead_info" href="javascript://" onclick="phpkd_vbabc_confirm('{vb:rawphrase phpkd_vbabc_confirm_abandon}', '{vb:raw vboptions.phpkd_vbabc_script}?{vb:raw session.sessionurl}do=eventabandon&amp;eventid={vb:raw eventinfo.eventid}&amp;confirm=1'); return false"><img class="inlineimg" src="{vb:stylevar imgdir_phpkd_vbabc}/abandon.png" alt="{vb:rawphrase phpkd_vbabc_eventabandon}" title="{vb:rawphrase phpkd_vbabc_eventabandon}"/></a> <a class="textcontrol blockhead_info" href="javascript://" onclick="phpkd_vbabc_confirm('{vb:rawphrase phpkd_vbabc_confirm_delete}', '{vb:raw vboptions.phpkd_vbabc_script}?{vb:raw session.sessionurl}do=eventdelete&amp;eventid={vb:raw eventinfo.eventid}&amp;confirm=1'); return false"><img class="inlineimg" src="{vb:stylevar imgdir_phpkd_vbabc}/delete.png" alt="{vb:rawphrase phpkd_vbabc_eventdelete}" title="{vb:rawphrase phpkd_vbabc_eventdelete}"/></a></vb:if>
+			<dl class="stats">
+				<dt>{vb:rawphrase phpkd_vbabc_betters}</dt>
+				<dd>{vb:raw eventinfo.betters}</dd>
+			</dl>
+		</div>
+
+		<div class="blockbody">
+			<vb:if condition="$eventinfo['timeoutdate'] OR $eventinfo['payafterdate'] OR $eventinfo['multiple']">
+			<h3 class="eventsubhead">
+				<vb:if condition="$eventinfo['public'] OR $eventinfo['multiple']">
+				<span style="float: {vb:stylevar right}; text-align: {vb:stylevar right}">
+					<vb:if condition="$eventinfo['multiple']">{vb:rawphrase phpkd_vbabc_multiple_note}</vb:if>
+					<vb:if condition="$eventinfo['public'] AND $eventinfo['multiple']"><br /></vb:if>
+					<vb:if condition="$eventinfo['public']">{vb:rawphrase phpkd_vbabc_public_note}</vb:if>
+				</span>
+				</vb:if>
+				<vb:if condition="$eventinfo['status'] == 'open'">
+					<vb:if condition="$eventinfo['timeoutdate']">{vb:rawphrase phpkd_vbabc_will_close_on_x_at_y, {vb:raw eventinfo.timeoutdate}, {vb:raw eventinfo.timeouttime}}<br /></vb:if>
+					<vb:if condition="$eventinfo['payafterdate']">{vb:rawphrase phpkd_vbabc_will_pay_on_x_at_y, {vb:raw eventinfo.payafterdate}, {vb:raw eventinfo.payaftertime}}</vb:if>
+				<vb:elseif condition="$eventinfo['status'] == 'closed'" />
+					<vb:if condition="$eventinfo['timeoutdate']">{vb:rawphrase phpkd_vbabc_will_closed_on_x_at_y, {vb:raw eventinfo.timeoutdate}, {vb:raw eventinfo.timeouttime}}<br /></vb:if>
+					<vb:if condition="$eventinfo['payafterdate']">{vb:rawphrase phpkd_vbabc_will_paid_on_x_at_y, {vb:raw eventinfo.payafterdate}, {vb:raw eventinfo.payaftertime}}</vb:if>
+				<vb:elseif condition="$eventinfo['status'] == 'settled'" />
+					{vb:rawphrase phpkd_vbabc_settled}
+				<vb:elseif condition="$eventinfo['status'] == 'abandoned'" />
+					{vb:rawphrase phpkd_vbabc_abandoned}
+				</vb:if>
+			</h3>
+			</vb:if>
+
+			<div id="eventoptions" class="blockrow" style="padding-bottom: 10px">
+				<table cellpadding="0" cellspacing="0" border="0" style="width: 100%">
+					<tr>
+						<th class="blocksubhead" style="width: <vb:if condition="$show['phpkd_vbabc_betallow'] OR $show['phpkd_vbabc_settleallow']">50%<vb:else />60%</vb:if>; white-space: nowrap">{vb:rawphrase phpkd_vbabc_outcome}</th>
+						<th class="blocksubhead" style="width: 20%; white-space: nowrap; text-align: center">{vb:rawphrase phpkd_vbabc_odds}</th>
+						<th class="blocksubhead" style="width: 10%; white-space: nowrap; text-align: center">{vb:rawphrase phpkd_vbabc_totalbets}</th>
+						<th class="blocksubhead" style="width: 10%; white-space: nowrap; text-align: center">{vb:rawphrase phpkd_vbabc_totalstaked}</th>
+						<vb:if condition="$show['phpkd_vbabc_betallow']"><th class="blocksubhead" style="width: 10%; white-space: nowrap; text-align: center">{vb:rawphrase phpkd_vbabc_stake}</th><vb:elseif condition="$show['phpkd_vbabc_settleallow']" /><th class="blocksubhead" style="width: 10%; white-space: nowrap; text-align: center">{vb:rawphrase phpkd_vbabc_settle}</th><vb:elseif condition="$eventinfo['status'] == 'settled'" /><th class="blocksubhead" style="width: 10%; white-space: nowrap; text-align: center">{vb:rawphrase phpkd_vbabc_result}</th></vb:if>
+					</tr>
+					{vb:raw options}
+				</table>
+			</div>
+		</div>
+
+		<div class="blockfoot">
+			<vb:if condition="$show['phpkd_vbabc_betallow'] OR $show['phpkd_vbabc_settleallow']">
+			<vb:if condition="$show['phpkd_vbabc_betprivateallow']"><div class="group" style="padding-bottom: 3px"><input type="checkbox" name="privatebet" id="privatebet" value="1" tabindex="1" /> <label for="privatebet">{vb:rawphrase phpkd_vbabc_privatebet}</label></div><vb:elseif condition="$show['phpkd_vbabc_settleallow']" /><div class="group" style="padding-bottom: 3px"><input type="checkbox" name="nowinners" id="nowinners" value="1" tabindex="1" /> <label for="nowinners">{vb:rawphrase phpkd_vbabc_nowinners}</label></div></vb:if>
+			<div class="group">
+				<input type="submit" class="button" value="<vb:if condition="$show['phpkd_vbabc_betallow']">{vb:rawphrase phpkd_vbabc_bet_now}<vb:else />{vb:rawphrase phpkd_vbabc_settle_now}</vb:if>" tabindex="1" />
+				<!-- <a class="textcontrol" href="{vb:raw vboptions.phpkd_vbabc_script}?{vb:raw session.sessionurl}do=showresults&amp;eventid={vb:raw eventinfo.eventid}">{vb:rawphrase phpkd_vbabc_showresults}</a> -->
+				<input type="hidden" name="s" value="{vb:raw session.sessionhash}" />
+				<input type="hidden" name="securitytoken" value="{vb:raw bbuserinfo.securitytoken}" />
+				<input type="hidden" name="do" value="<vb:if condition="$show['phpkd_vbabc_betallow']">eventbet<vb:else />eventsettle</vb:if>" />
+				<input type="hidden" name="eventid" value="{vb:raw eventinfo.eventid}" />
+				<input type="hidden" name="threadid" value="{vb:raw threadinfo.threadid}" />
+			</div>
+			<vb:else />
+				&nbsp;
+			</vb:if>
+		</div>
+	<vb:if condition="$show['phpkd_vbabc_betallow'] OR $show['phpkd_vbabc_settleallow']"></form></vb:if>
+</div>]]></template>
+		<template name="phpkd_vbabc_eventpreview" templatetype="template" date="1294090177" username="PHPKD" version="4.1.100"><![CDATA[<h2 class="blockhead">
+		{vb:rawphrase phpkd_vbabc_preview}
+</h2>
+<div class="blockbody">
+	<h3 class="blocksubhead">{vb:raw previewtitle}</h3>
+	<div class="blockrow">{vb:rawphrase options}</div>
+	<ol class="blockrow previewbit">{vb:raw eventpreviewoptions}</ul>
+</div>]]></template>
+		<template name="phpkd_vbabc_newthread" templatetype="template" date="1297088694" username="PHPKD" version="4.1.100"><![CDATA[<fieldset class="blockrow">
+	<legend>{vb:rawphrase phpkd_vbabc_post}</legend>
+	<dl class="group dep_group">
+		<dt>
+			<label for="phpkd_vbabc">{vb:rawphrase phpkd_vbabc_create} <vb:if condition="$vboptions['phpkd_vbabc_maxopts']"> ({vb:rawphrase maximum} {vb:raw vboptions.phpkd_vbabc_maxopts})</vb:if>:</label>
+			<input type="checkbox" name="phpkd_vbabc" value="yes" id="phpkd_vbabc" tabindex="1" {vb:raw checked.phpkd_vbabc} class="dep_ctrl" /> 
+		</dt>
+		<dd id="phpkd_vbabc_deps" class="rightcol">
+			<input type="text" class="textbox numeric" size="5" name="phpkd_vbabc_opts" value="{vb:raw phpkd_vbabc_opts}" tabindex="1" />
+		</dd>
+	</dl>
+</fieldset>
+]]></template>
+		<template name="phpkd_vbabc_option" templatetype="template" date="1295278863" username="PHPKD" version="4.1.100"><![CDATA[<label for="options[{vb:raw option.number}][title]">{vb:rawphrase phpkd_vbabc_option_x, {vb:raw option.number}}:</label>
+<div><input type="text" class="primary textbox" id="options[{vb:raw option.number}][title]" name="options[{vb:raw option.number}][title]" value="{vb:raw option.title}" /> <span style="float: right">{vb:rawphrase phpkd_vbabc_oddsfrom}: <input type="text" class="primary textbox" id="options[{vb:raw option.number}][odds_against]" name="options[{vb:raw option.number}][odds_against]" value="{vb:raw option.odds_against}" size="5" /> {vb:rawphrase phpkd_vbabc_oddsto}: <input type="text" class="primary textbox" id="options[{vb:raw option.number}][odds_for]" name="options[{vb:raw option.number}][odds_for]" value="{vb:raw option.odds_for}" size="5" /></span></div>
+<input type="hidden" name="options[{vb:raw option.number}][optionid]" value="{vb:raw option.optionid}" />
+]]></template>
+		<template name="phpkd_vbabc_optionopen" templatetype="template" date="1297104046" username="PHPKD" version="4.1.100"><![CDATA[					<tr>
+						<td style="width: <vb:if condition="$show['phpkd_vbabc_betallow'] OR $show['phpkd_vbabc_settleallow']">50%<vb:else />60%</vb:if>; white-space: nowrap"><vb:if condition="$option['percent']"><span style="width: 50%; float: {vb:stylevar right}"><span class="eventbar{vb:raw option.graphicnumber}" style="width:{vb:raw option.percent}%; float: {vb:stylevar right}; text-align: {vb:stylevar right}">{vb:raw option.percent}%</span></span></vb:if>{vb:raw option.title}</td>
+						<td style="width: 20%; white-space: nowrap; text-align: center">{vb:raw option.odds_against} / {vb:raw option.odds_for}{vb:raw option.favorite} ({vb:raw option.decimal})</td>
+						<td style="width: 10%; white-space: nowrap; text-align: center">{vb:raw option.bets}</td>
+						<td style="width: 10%; white-space: nowrap; text-align: center">{vb:raw option.staked}</td>
+						<vb:if condition="$show['phpkd_vbabc_betallow']"><td style="width: 10%; white-space: nowrap; text-align: center"><input type="text" name="stake[{vb:raw option.optionid}][amount]" value="" tabindex="1" size="6" /><input type="hidden" name="stake[{vb:raw option.optionid}][odds_against]" value="{vb:raw option.odds_against}" /><input type="hidden" name="stake[{vb:raw option.optionid}][odds_for]" value="{vb:raw option.odds_for}" /></td><vb:elseif condition="$show['phpkd_vbabc_settleallow']" /><td style="width: 10%; white-space: nowrap; text-align: center"><input type="checkbox" name="settle[{vb:raw option.optionid}]" value="1" tabindex="1" /></td><vb:elseif condition="$eventinfo['status'] == 'settled'" /><td style="width: 10%; white-space: nowrap; text-align: center"><vb:if condition="$option['pays']">{vb:rawphrase phpkd_vbabc_won}<vb:else />{vb:rawphrase phpkd_vbabc_na}</vb:if></td></vb:if>
+					</tr>
+]]></template>
+		<template name="phpkd_vbabc_optionpreview" templatetype="template" date="1297100357" username="PHPKD" version="4.1.100"><![CDATA[<li>{vb:raw option}</li>]]></template>
+	</templates>
+	<stylevardfns>
+		<stylevargroup name="ImagePaths">
+			<stylevar name="imgdir_phpkd_vbabc" datatype="imagedir" validation="" failsafe="" />
+		</stylevargroup>
+	</stylevardfns>
+	<stylevars>
+		<stylevar name="imgdir_phpkd_vbabc" value="YToxOntzOjg6ImltYWdlZGlyIjtzOjE4OiJpbWFnZXMvcGhwa2QvdmJhYmMiO30=" />
+	</stylevars>
+	<plugins>
+		<plugin active="1" executionorder="5">
+			<title><![CDATA[PHPKD - vB Automated Bookie Center - [ Admindata Start ]]]></title>
+			<hookname>admindata_start</hookname>
+			<phpcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_core.php');
+$phpkd_vbabc = new PHPKD_VBABC($registry);
+$phpkd_vbabc->fetch_hook('admindata_start', array('there' => $this));]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="5">
+			<title><![CDATA[PHPKD - vB Automated Bookie Center - [ Admin Permissions Form ]]]></title>
+			<hookname>admin_permissions_form</hookname>
+			<phpcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_core.php');
+$phpkd_vbabc = new PHPKD_VBABC($vbulletin, $vbphrase);
+$phpkd_vbabc->fetch_hook('admin_permissions_form', array('user' => $user));]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="5">
+			<title><![CDATA[PHPKD - vB Automated Bookie Center - [ Admin Permissions Process ]]]></title>
+			<hookname>admin_permissions_process</hookname>
+			<phpcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_core.php');
+$phpkd_vbabc = new PHPKD_VBABC($vbulletin);
+$phpkd_vbabc->fetch_hook('admin_permissions_process', array('admindm' => $admindm));]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="5">
+			<title><![CDATA[PHPKD - vB Automated Bookie Center - [ Cache Templates ]]]></title>
+			<hookname>cache_templates</hookname>
+			<phpcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_core.php');
+$phpkd_vbabc = new PHPKD_VBABC($vbulletin);
+extract($phpkd_vbabc->fetch_hook('cache_templates', array('show' => $show, 'cache' => $cache)));]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="5">
+			<title><![CDATA[PHPKD - vB Automated Bookie Center - [ Can Administer ]]]></title>
+			<hookname>can_administer</hookname>
+			<phpcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_core.php');
+$phpkd_vbabc = new PHPKD_VBABC($vbulletin);
+@extract($phpkd_vbabc->fetch_hook('can_administer', array('do' => $do, 'admin' => $admin)));]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="5">
+			<title><![CDATA[PHPKD - vB Automated Bookie Center - [ Fetch Foruminfo ]]]></title>
+			<hookname>fetch_foruminfo</hookname>
+			<phpcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_core.php');
+$phpkd_vbabc = new PHPKD_VBABC($vbulletin);
+$phpkd_vbabc->fetch_hook('fetch_foruminfo', array('forumid' => $forumid));]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="5">
+			<title><![CDATA[PHPKD - vB Automated Bookie Center - [ Forum Options Form ]]]></title>
+			<hookname>forumadmin_edit_form</hookname>
+			<phpcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_core.php');
+$phpkd_vbabc = new PHPKD_VBABC($vbulletin, $vbphrase);
+$phpkd_vbabc->fetch_hook('forumadmin_edit_form', array('forum' => $forum));]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="5">
+			<title><![CDATA[PHPKD - vB Automated Bookie Center - [ Foruminfo Process Fields ]]]></title>
+			<hookname>forumadmin_update_save</hookname>
+			<phpcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_core.php');
+$phpkd_vbabc = new PHPKD_VBABC($vbulletin);
+$phpkd_vbabc->fetch_hook('forumadmin_update_save', array('forumdata' => $forumdata));]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="5">
+			<title><![CDATA[PHPKD - vB Automated Bookie Center - [ Foruminfo Define Bitfields ]]]></title>
+			<hookname>forumdata_start</hookname>
+			<phpcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_core.php');
+$phpkd_vbabc = new PHPKD_VBABC($this->registry);
+$phpkd_vbabc->fetch_hook('forumdata_start', array('there' => $this));]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="5">
+			<title><![CDATA[PHPKD - vB Automated Bookie Center - [ Forumdisplay Query ]]]></title>
+			<hookname>forumdisplay_query</hookname>
+			<phpcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_core.php');
+$phpkd_vbabc = new PHPKD_VBABC($vbulletin);
+extract($phpkd_vbabc->fetch_hook('forumdisplay_query', array('show' => $show, 'hook_query_fields' => $hook_query_fields)));]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="5">
+			<title><![CDATA[PHPKD - vB Automated Bookie Center - [ Process Records ]]]></title>
+			<hookname>global_complete</hookname>
+			<phpcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_core.php');
+$phpkd_vbabc = new PHPKD_VBABC($vbulletin, $vbphrase);
+@extract($phpkd_vbabc->fetch_hook('global_complete', array('output' => $output)));]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="5">
+			<title><![CDATA[PHPKD - vB Automated Bookie Center - [ Required Global Checks ]]]></title>
+			<hookname>global_state_check</hookname>
+			<phpcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_core.php');
+$phpkd_vbabc = new PHPKD_VBABC($vbulletin);
+extract($phpkd_vbabc->fetch_hook('global_state_check', array('show' => $show)));]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="5">
+			<title><![CDATA[PHPKD - vB Automated Bookie Center - [ Newthread Form Display ]]]></title>
+			<hookname>newthread_form_complete</hookname>
+			<phpcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_core.php');
+$phpkd_vbabc = new PHPKD_VBABC($vbulletin);
+extract($phpkd_vbabc->fetch_hook('newthread_form_complete', array('show' => $show, 'newpost' => $newpost, 'checked' => $checked, 'threadmanagement' => $threadmanagement)));]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="5">
+			<title><![CDATA[PHPKD - vB Automated Bookie Center - [ Newthread Post Redirect ]]]></title>
+			<hookname>newthread_post_complete</hookname>
+			<phpcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_core.php');
+$phpkd_vbabc = new PHPKD_VBABC($vbulletin);
+$phpkd_vbabc->fetch_hook('newthread_post_complete', array('newpost' => $newpost, 'forumperms' => $forumperms));]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="5">
+			<title><![CDATA[PHPKD - vB Automated Bookie Center - [ Newthread Post Init ]]]></title>
+			<hookname>newthread_post_start</hookname>
+			<phpcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_core.php');
+$phpkd_vbabc = new PHPKD_VBABC($vbulletin);
+extract($phpkd_vbabc->fetch_hook('newthread_post_start', array('newpost' => $newpost)));]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="5">
+			<title><![CDATA[PHPKD - vB Automated Bookie Center - [ Showthread Main Processes ]]]></title>
+			<hookname>showthread_complete</hookname>
+			<phpcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_core.php');
+$phpkd_vbabc = new PHPKD_VBABC($vbulletin);
+extract($phpkd_vbabc->fetch_hook('showthread_complete', array('show' => $show, 'threadinfo' => $threadinfo, 'foruminfo' => $foruminfo, 'session' => $session, 'template_hook' => $template_hook)));]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="5">
+			<title><![CDATA[PHPKD - vB Automated Bookie Center - [ Template Group ]]]></title>
+			<hookname>template_groups</hookname>
+			<phpcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_core.php');
+$phpkd_vbabc = new PHPKD_VBABC($vbulletin, $vbphrase);
+extract($phpkd_vbabc->fetch_hook('template_groups', array('only' => $only)));]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="5">
+			<title><![CDATA[PHPKD - vB Automated Bookie Center - [ Threadbit Icon ]]]></title>
+			<hookname>threadbit_process</hookname>
+			<phpcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_core.php');
+$phpkd_vbabc = new PHPKD_VBABC($vbulletin, $vbphrase);
+extract($phpkd_vbabc->fetch_hook('threadbit_process', array('show' => $show, 'thread' => $thread, 'allowicons' => $allowicons)));]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="5">
+			<title><![CDATA[PHPKD - vB Automated Bookie Center - [ Delete Bookie Event When Thread Deleted ]]]></title>
+			<hookname>threaddata_delete</hookname>
+			<phpcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_core.php');
+$phpkd_vbabc = new PHPKD_VBABC($this->registry);
+$phpkd_vbabc->fetch_hook('threaddata_delete', array('physicaldel' => $physicaldel, 'there' => $this));]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="5">
+			<title><![CDATA[PHPKD - vB Automated Bookie Center - [ ThreadData ValidField ]]]></title>
+			<hookname>threaddata_start</hookname>
+			<phpcode><![CDATA[require_once(DIR . '/includes/phpkd/vbabc/class_core.php');
+$phpkd_vbabc = new PHPKD_VBABC($this->registry);
+$phpkd_vbabc->fetch_hook('threaddata_start', array('there' => $this));]]></phpcode>
+		</plugin>
+	</plugins>
+	<phrases>
+		<phrasetype name="Control Panel Home Pages" fieldname="cphome">
+			<phrase name="phpkd_vblvb_nav" date="1295708626" username="PHPKD" version="4.1.100"><![CDATA[Automated Bookie Center]]></phrase>
+			<phrase name="phpkd_vblvb_nav_settings" date="1295708551" username="PHPKD" version="4.1.100"><![CDATA[Settings]]></phrase>
+		</phrasetype>
+		<phrasetype name="Control Panel Options" fieldname="cpoption">
+			<phrase name="phpkd_vbabc_bets_current" date="1292164791" username="PHPKD" version="4.1.100"><![CDATA[Current Bets]]></phrase>
+			<phrase name="phpkd_vbabc_bets_lost" date="1292164796" username="PHPKD" version="4.1.100"><![CDATA[Lost Bets]]></phrase>
+			<phrase name="phpkd_vbabc_bets_won" date="1292164801" username="PHPKD" version="4.1.100"><![CDATA[Won Bets]]></phrase>
+			<phrase name="phpkd_vbabc_cash" date="1292164807" username="PHPKD" version="4.1.100"><![CDATA[Available Cash]]></phrase>
+			<phrase name="phpkd_vbabc_inex_users_all" date="1292136370" username="PHPKD" version="4.1.100"><![CDATA[Include All Users]]></phrase>
+			<phrase name="phpkd_vbabc_inex_users_ex" date="1292136389" username="PHPKD" version="4.1.100"><![CDATA[Exclude Specific Users]]></phrase>
+			<phrase name="phpkd_vbabc_inex_users_in" date="1292136383" username="PHPKD" version="4.1.100"><![CDATA[Include Specific Users]]></phrase>
+		</phrasetype>
+		<phrasetype name="Permissions" fieldname="cppermission">
+			<phrase name="can_administer_phpkd_vbabc" date="1297074458" username="PHPKD" version="4.1.100"><![CDATA[Can Administer vB Automated Bookie Center]]></phrase>
+			<phrase name="phpkd_vbabc" date="1293737712" username="PHPKD" version="4.1.100"><![CDATA[PHPKD - vB Automated Bookie Center Permissions]]></phrase>
+			<phrase name="phpkd_vbabc_canadd" date="1292141717" username="PHPKD" version="4.1.100"><![CDATA[Can Add Bookie Events]]></phrase>
+			<phrase name="phpkd_vbabc_canbet" date="1292141722" username="PHPKD" version="4.1.100"><![CDATA[Can Bet On Bookie Events]]></phrase>
+			<phrase name="phpkd_vbabc_canedit" date="1293738581" username="PHPKD" version="4.1.100"><![CDATA[Can Edit Own Bookie Events]]></phrase>
+			<phrase name="phpkd_vbabc_canmoderate" date="1296964933" username="PHPKD" version="4.1.100"><![CDATA[Can Moderate Bookie Events<dfn>This permission grants full control of bookie events and overrides all the above permissions when enabled (add/edit/bet/settle/delete/abandon).</dfn>]]></phrase>
+			<phrase name="phpkd_vbabc_canprivatebet" date="1292186970" username="PHPKD" version="4.1.100"><![CDATA[Can Private Bet On Bookie Events]]></phrase>
+			<phrase name="phpkd_vbabc_cansettle" date="1295813897" username="PHPKD" version="4.1.100"><![CDATA[Can Settle Bookie Events]]></phrase>
+			<phrase name="phpkd_vbabc_canspecify" date="1292187027" username="PHPKD" version="4.1.100"><![CDATA[Can Specify Which/How Much Users To Bet]]></phrase>
+			<phrase name="phpkd_vbabc_canview" date="1292141733" username="PHPKD" version="4.1.100"><![CDATA[Can View Bookie Events]]></phrase>
+		</phrasetype>
+		<phrasetype name="Error Messages" fieldname="error">
+			<phrase name="phpkd_vbabc_already" date="1294000149" username="PHPKD" version="4.1.100"><![CDATA[You cannot add a bookie event to this thread because it already has one attached to it.]]></phrase>
+			<phrase name="phpkd_vbabc_betted" date="1295451334" username="PHPKD" version="4.1.100"><![CDATA[You have already betted on this bookie event. Please press back to return to it.]]></phrase>
+			<phrase name="phpkd_vbabc_eventnotclosed" date="1295823437" username="PHPKD" version="4.1.100"><![CDATA[The bookie event you selected is not closed, it should be closed in order to be able to settle it. Please press back to return to it.]]></phrase>
+			<phrase name="phpkd_vbabc_eventnotopen" date="1295823419" username="PHPKD" version="4.1.100"><![CDATA[The bookie event you selected is not open, it should be open in order to be able to bet on it. Please press back to return to it.]]></phrase>
+			<phrase name="phpkd_vbabc_initialization_failed_file" date="1296578669" username="PHPKD" version="4.1.100"><![CDATA[Sorry, required initialization for "PHPKD - vB Automated Bookie Center" failed. Please make sure that the following file already uploaded and is readable "./includes/phpkd/vbabc/{1}".]]></phrase>
+			<phrase name="phpkd_vbabc_invalid_license" date="1296792257" username="PHPKD" version="4.1.100"><![CDATA[Sorry, this isn't a valid license. Please contact support at <a href="http://www.phpkd.net" target="_blank">www.phpkd.net</a> for a valid license!!]]></phrase>
+			<phrase name="phpkd_vbabc_invalid_license_key" date="1296792129" username="PHPKD" version="4.1.100"><![CDATA[Sorry, license key is <span style="color: #FF0000">NOT</span> valid, please enter a correct license key or contact support at <a href="http://www.phpkd.net" target="_blank">www.phpkd.net</a> for a valid license!!]]></phrase>
+			<phrase name="phpkd_vbabc_invalid_license_trail" date="1296793290" username="PHPKD" version="4.1.100"><![CDATA[Sorry, license key is <span style="color: #FF0000">NOT</span> valid, please get your correct license key from <a href="http://eshop.phpkd.net/customers/index.php" target="_blank">Customer Area</a> or contact support at <a href="http://www.phpkd.net" target="_blank">www.phpkd.net</a> for assistance!! Note that a valid license key for this product <span style="color: #FF0000">SHOULD</span> begin with 'TRAIL'.]]></phrase>
+			<phrase name="phpkd_vbabc_invalid_license_vbabc" date="1296793246" username="PHPKD" version="4.1.100"><![CDATA[Sorry, license key is <span style="color: #FF0000">NOT</span> valid, please get your correct license key from <a href="http://eshop.phpkd.net/customers/index.php" target="_blank">Customer Area</a> or contact support at <a href="http://www.phpkd.net" target="_blank">www.phpkd.net</a> for assistance!! Note that a valid license key for this product <span style="color: #FF0000">SHOULD</span> begin with 'VBABC'.]]></phrase>
+			<phrase name="phpkd_vbabc_invalidbet" date="1295826625" username="PHPKD" version="4.1.100"><![CDATA[Invalid bet! You either did not select an option to bet for, or entered an invalid value for your bet. Please press back to return to the bookie and try again.]]></phrase>
+			<phrase name="phpkd_vbabc_invalidsettle" date="1295827187" username="PHPKD" version="4.1.100"><![CDATA[Invalid settle! You have to choose either a winning option(s), or select the -no winners- option. Please press back to return to the bookie and try again.]]></phrase>
+			<phrase name="phpkd_vbabc_maximumbetters" date="1295519980" username="PHPKD" version="4.1.100"><![CDATA[Sorry, this bookie event reached it's maximum allowed betters. No more betting allowed. Please press back to return to it.]]></phrase>
+			<phrase name="phpkd_vbabc_maxpayafter" date="1294196837" username="PHPKD" version="4.1.100"><![CDATA[The value entered for timeout has exceeded the maximum possible value.]]></phrase>
+			<phrase name="phpkd_vbabc_maxtimeout" date="1293932112" username="PHPKD" version="4.1.100"><![CDATA[The value entered for timeout has exceeded the maximum possible value.]]></phrase>
+			<phrase name="phpkd_vbabc_missing" date="1294196306" username="PHPKD" version="4.1.100"><![CDATA[Please complete the title field, the group field and at least 2 option fields. Press the back button, correct the problem and try again.]]></phrase>
+			<phrase name="phpkd_vbabc_noenoughcash" date="1295880252" username="PHPKD" version="4.1.100"><![CDATA[Sorry, you don't have enough cash to bet on this bookie event. Please press back to return to it.]]></phrase>
+			<phrase name="phpkd_vbabc_notyou" date="1296076559" username="PHPKD" version="4.1.100"><![CDATA[Sorry, only one specific user allowed to bet on this bookie event, it's not you! Please press back to return to it.]]></phrase>
+			<phrase name="phpkd_vbabc_onlyonebet" date="1295519804" username="PHPKD" version="4.1.100"><![CDATA[Sorry, this bookie event doesn't allow multiple bets. Only one bet allowed. Please press back to return to it.]]></phrase>
+			<phrase name="phpkd_vbabc_optionlength" date="1294008364" username="PHPKD" version="4.1.100"><![CDATA[Bookie event options cannot exceed {1} characters. Option(s) <b>{2}</b> exceed this limitation.]]></phrase>
+			<phrase name="phpkd_vbabc_shouldconfirm" date="1296076587" username="PHPKD" version="4.1.100"><![CDATA[Sorry, you should confirm this action before processing it! Please press back to return to the bookie event & try again.]]></phrase>
+			<phrase name="phpkd_vbabc_timelimitadd" date="1295085876" username="PHPKD" version="4.1.100"><![CDATA[You can only add a bookie event to a thread within {1} minutes of posting the thread.]]></phrase>
+			<phrase name="phpkd_vbabc_timelimitedit" date="1295085929" username="PHPKD" version="4.1.100"><![CDATA[You can only edit a bookie event in a thread within {1} minutes of posting the thread.]]></phrase>
+			<phrase name="phpkd_vbabc_timeoutpayafter" date="1294386795" username="PHPKD" version="4.1.100"><![CDATA["Bookie Bets Paid After" can't be before "Bookie Event Timeout", it should be after!]]></phrase>
+		</phrasetype>
+		<phrasetype name="Forum-Related" fieldname="forum">
+			<phrase name="phpkd_vbabc_active" date="1294869653" username="PHPKD" version="4.1.100"><![CDATA[Allow Bookie Events]]></phrase>
+			<phrase name="phpkd_vbabc_oneonone" date="1294869671" username="PHPKD" version="4.1.100"><![CDATA[Allow One on One Betting]]></phrase>
+			<phrase name="phpkd_vbabc_options" date="1294851352" username="PHPKD" version="4.1.100"><![CDATA[PHPKD - vB Automated Bookie Center Options]]></phrase>
+		</phrasetype>
+		<phrasetype name="Forum Display" fieldname="forumdisplay">
+			<phrase name="phpkd_vbabc_event" date="1295445533" username="PHPKD" version="4.1.100"><![CDATA[Bookie Event]]></phrase>
+		</phrasetype>
+		<phrasetype name="Front-End Redirect Messages" fieldname="frontredirect">
+			<phrase name="phpkd_vbabc_betthanks" date="1296410716" username="PHPKD" version="4.1.100"><![CDATA[Thank you for betting on this bookie event. You are now being taken back to the bookie event.]]></phrase>
+			<phrase name="phpkd_vbabc_eventabandon" date="1296410581" username="PHPKD" version="4.1.100"><![CDATA[The bookie event has been successfully abandoned. You are now being taken back to the bookie event.]]></phrase>
+			<phrase name="phpkd_vbabc_eventdelete" date="1296410687" username="PHPKD" version="4.1.100"><![CDATA[The bookie event has been successfully deleted. You are now being taken back to the bookie event.]]></phrase>
+			<phrase name="phpkd_vbabc_eventopenclose" date="1296410595" username="PHPKD" version="4.1.100"><![CDATA[The bookie event has been successfully $action. You are now being taken back to the bookie event.]]></phrase>
+			<phrase name="phpkd_vbabc_eventsettle" date="1296410645" username="PHPKD" version="4.1.100"><![CDATA[The bookie event has been successfully settled. You are now being taken back to the bookie event.]]></phrase>
+		</phrasetype>
+		<phrasetype name="GLOBAL" fieldname="global">
+			<phrase name="phpkd_vbabc_results" date="1293761435" username="PHPKD" version="4.1.100"><![CDATA[View Bookie Results]]></phrase>
+		</phrasetype>
+		<phrasetype name="Posting" fieldname="posting">
+			<phrase name="phpkd_vbabc_abandoned" date="1294636508" username="PHPKD" version="4.1.100"><![CDATA[This bookie event has been abandoned!]]></phrase>
+			<phrase name="phpkd_vbabc_add" date="1297088265" username="PHPKD" version="4.1.100"><![CDATA[Add a Bookie Event to this Thread]]></phrase>
+			<phrase name="phpkd_vbabc_allow_multiple_choice" date="1293824070" username="PHPKD" version="4.1.100"><![CDATA[Allow multiple choice: Give users the ability to select more than one option]]></phrase>
+			<phrase name="phpkd_vbabc_bet_now" date="1294570212" username="PHPKD" version="4.1.100"><![CDATA[Bet Now]]></phrase>
+			<phrase name="phpkd_vbabc_betters" date="1294594449" username="PHPKD" version="4.1.100"><![CDATA[Betters]]></phrase>
+			<phrase name="phpkd_vbabc_chalengedcount" date="1295537471" username="PHPKD" version="4.1.100"><![CDATA[Bookie Event Challenged Users]]></phrase>
+			<phrase name="phpkd_vbabc_chalengedcount_explain" date="1295537728" username="PHPKD" version="4.1.100"><![CDATA[How many users can participate in this bookie event & bet on it? You can limit challenged users or leave it unlimited. Leave this empty or put '0' for unlimited.]]></phrase>
+			<phrase name="phpkd_vbabc_confirm_abandon" date="1297180892" username="PHPKD" version="4.1.100"><![CDATA[Are you sure you want to Abandon this bookie event?\n(Please note that this action can NOT be undone)]]></phrase>
+			<phrase name="phpkd_vbabc_confirm_delete" date="1297180877" username="PHPKD" version="4.1.100"><![CDATA[Are you sure you want to Delete this bookie event?\n(Please note that this action can NOT be undone)]]></phrase>
+			<phrase name="phpkd_vbabc_confirm_openclose" date="1296411206" username="PHPKD" version="4.1.100"><![CDATA[Are you sure you want to Open/Close this bookie event?\n(Toggle Bookie Event Status)]]></phrase>
+			<phrase name="phpkd_vbabc_create" date="1297088469" username="PHPKD" version="4.1.100"><![CDATA[Create a bookie event with this number of options]]></phrase>
+			<phrase name="phpkd_vbabc_event" date="1294567072" username="PHPKD" version="4.1.100"><![CDATA[Bookie Event]]></phrase>
+			<phrase name="phpkd_vbabc_eventabandon" date="1294744144" username="PHPKD" version="4.1.100"><![CDATA[Abandon Bookie Event]]></phrase>
+			<phrase name="phpkd_vbabc_eventadd" date="1295110946" username="PHPKD" version="4.1.100"><![CDATA[Add Bookie Event]]></phrase>
+			<phrase name="phpkd_vbabc_eventdelete" date="1294744128" username="PHPKD" version="4.1.100"><![CDATA[Delete Bookie Event]]></phrase>
+			<phrase name="phpkd_vbabc_eventedit" date="1294567417" username="PHPKD" version="4.1.100"><![CDATA[Edit Bookie Event]]></phrase>
+			<phrase name="phpkd_vbabc_eventopenclose" date="1296410935" username="PHPKD" version="4.1.100"><![CDATA[Toggle Bookie Event Status: Open/Close]]></phrase>
+			<phrase name="phpkd_vbabc_group" date="1293838045" username="PHPKD" version="4.1.100"><![CDATA[Bookie Event Group]]></phrase>
+			<phrase name="phpkd_vbabc_make_bets_public" date="1293826332" username="PHPKD" version="4.1.100"><![CDATA[Make bets public]]></phrase>
+			<phrase name="phpkd_vbabc_multiple_note" date="1294594316" username="PHPKD" version="4.1.100"><![CDATA[Multiple Choice Bookie Event]]></phrase>
+			<phrase name="phpkd_vbabc_na" date="1297104104" username="PHPKD" version="4.1.100"><![CDATA[-]]></phrase>
+			<phrase name="phpkd_vbabc_nowinners" date="1294765776" username="PHPKD" version="4.1.100"><![CDATA[No Winners]]></phrase>
+			<phrase name="phpkd_vbabc_odds" date="1294627221" username="PHPKD" version="4.1.100"><![CDATA[Odds]]></phrase>
+			<phrase name="phpkd_vbabc_oddsfrom" date="1293837819" username="PHPKD" version="4.1.100"><![CDATA[Odds]]></phrase>
+			<phrase name="phpkd_vbabc_oddsto" date="1293837814" username="PHPKD" version="4.1.100"><![CDATA[To]]></phrase>
+			<phrase name="phpkd_vbabc_option_x" date="1293836830" username="PHPKD" version="4.1.100"><![CDATA[Option {1}]]></phrase>
+			<phrase name="phpkd_vbabc_options" date="1293823375" username="PHPKD" version="4.1.100"><![CDATA[Bookie Event Options]]></phrase>
+			<phrase name="phpkd_vbabc_options_keep_short" date="1293823773" username="PHPKD" version="4.1.100"><![CDATA[Remember to keep the bookie event options short and to the point]]></phrase>
+			<phrase name="phpkd_vbabc_options_number" date="1293823694" username="PHPKD" version="4.1.100"><![CDATA[Number of bookie event options]]></phrase>
+			<phrase name="phpkd_vbabc_options_update" date="1293826265" username="PHPKD" version="4.1.100"><![CDATA[Update options]]></phrase>
+			<phrase name="phpkd_vbabc_outcome" date="1294626034" username="PHPKD" version="4.1.100"><![CDATA[Outcome]]></phrase>
+			<phrase name="phpkd_vbabc_payafter" date="1293826905" username="PHPKD" version="4.1.100"><![CDATA[Bookie Bets Paid After]]></phrase>
+			<phrase name="phpkd_vbabc_payafter_explain" date="1293827385" username="PHPKD" version="4.1.100"><![CDATA[Bets on this bookie event can be settled after this date. If you don't settle this event by {1} days after this date, all bets are called off and stakes will be returned.]]></phrase>
+			<phrase name="phpkd_vbabc_post" date="1297088679" username="PHPKD" version="4.1.100"><![CDATA[Post a Bookie Event]]></phrase>
+			<phrase name="phpkd_vbabc_preview" date="1293823965" username="PHPKD" version="4.1.100"><![CDATA[Preview Bookie Event]]></phrase>
+			<phrase name="phpkd_vbabc_privatebet" date="1294637150" username="PHPKD" version="4.1.100"><![CDATA[Private Bet]]></phrase>
+			<phrase name="phpkd_vbabc_public_note" date="1294594294" username="PHPKD" version="4.1.100"><![CDATA[Public Bookie Event]]></phrase>
+			<phrase name="phpkd_vbabc_result" date="1297099603" username="PHPKD" version="4.1.100"><![CDATA[Result]]></phrase>
+			<phrase name="phpkd_vbabc_settings" date="1293818777" username="PHPKD" version="4.1.100"><![CDATA[Bookie Event Settings]]></phrase>
+			<phrase name="phpkd_vbabc_settle" date="1294636740" username="PHPKD" version="4.1.100"><![CDATA[Settle]]></phrase>
+			<phrase name="phpkd_vbabc_settle_now" date="1297099921" username="PHPKD" version="4.1.100"><![CDATA[Settle Now]]></phrase>
+			<phrase name="phpkd_vbabc_settled" date="1294636516" username="PHPKD" version="4.1.100"><![CDATA[This bookie event has been settled!]]></phrase>
+			<phrase name="phpkd_vbabc_showresults" date="1294570258" username="PHPKD" version="4.1.100"><![CDATA[Show Results]]></phrase>
+			<phrase name="phpkd_vbabc_stake" date="1294627282" username="PHPKD" version="4.1.100"><![CDATA[Stake]]></phrase>
+			<phrase name="phpkd_vbabc_submit" date="1293824021" username="PHPKD" version="4.1.100"><![CDATA[Submit Bookie Event]]></phrase>
+			<phrase name="phpkd_vbabc_timeout" date="1294386740" username="PHPKD" version="4.1.100"><![CDATA[Bookie Event Timeout]]></phrase>
+			<phrase name="phpkd_vbabc_timeout_explain" date="1293827011" username="PHPKD" version="4.1.100"><![CDATA[This bookie event will be closed automatically after a period of time, enter a number of days here after which new bets can't be accepted.]]></phrase>
+			<phrase name="phpkd_vbabc_title" date="1293823323" username="PHPKD" version="4.1.100"><![CDATA[Bookie Event Title]]></phrase>
+			<phrase name="phpkd_vbabc_totalbets" date="1294627245" username="PHPKD" version="4.1.100"><![CDATA[Total Bets]]></phrase>
+			<phrase name="phpkd_vbabc_totalstaked" date="1294627267" username="PHPKD" version="4.1.100"><![CDATA[Total Staked]]></phrase>
+			<phrase name="phpkd_vbabc_will_close_on_x_at_y" date="1294569150" username="PHPKD" version="4.1.100"><![CDATA[This bookie event will close on <strong>{1}</strong> at <strong>{2}</strong>]]></phrase>
+			<phrase name="phpkd_vbabc_will_closed_on_x_at_y" date="1294636591" username="PHPKD" version="4.1.100"><![CDATA[This bookie event supposed to be closed on <strong>{1}</strong> at <strong>{2}</strong>]]></phrase>
+			<phrase name="phpkd_vbabc_will_paid_on_x_at_y" date="1294636609" username="PHPKD" version="4.1.100"><![CDATA[This bookie event supposed to be paid on <strong>{1}</strong> at <strong>{2}</strong>]]></phrase>
+			<phrase name="phpkd_vbabc_will_pay_on_x_at_y" date="1294569178" username="PHPKD" version="4.1.100"><![CDATA[This bookie event will pay on <strong>{1}</strong> at <strong>{2}</strong>]]></phrase>
+			<phrase name="phpkd_vbabc_won" date="1297100295" username="PHPKD" version="4.1.100"><![CDATA[Won!]]></phrase>
+			<phrase name="phpkd_vbabc_zoneoffset" date="1293840813" username="PHPKD" version="4.1.100"><![CDATA[Time Zone]]></phrase>
+		</phrasetype>
+		<phrasetype name="Style Tools" fieldname="style">
+			<phrase name="phpkd_vbabc" date="1295447579" username="PHPKD" version="4.1.100"><![CDATA[PHPKD - vB Automated Bookie Center]]></phrase>
+			<phrase name="stylevar_imgdir_phpkd_vbabc_description" date="1296144324" username="PHPKD" version="4.1.0" />
+			<phrase name="stylevar_imgdir_phpkd_vbabc_name" date="1296144324" username="PHPKD" version="4.1.0"><![CDATA[PHPKD - vB Automated Bookie Center Images Directory]]></phrase>
+		</phrasetype>
+		<phrasetype name="vBulletin Settings" fieldname="vbsettings">
+			<phrase name="setting_phpkd_vbabc_active_desc" date="1297072810" username="PHPKD" version="4.1.100"><![CDATA[Choose whether "PHPKD - vB Automated Bookie Center" is active or not (global switch).]]></phrase>
+			<phrase name="setting_phpkd_vbabc_active_title" date="1297072810" username="PHPKD" version="4.1.100"><![CDATA[Product Active]]></phrase>
+			<phrase name="setting_phpkd_vbabc_cash_custom_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[If you've chosen to use 'Custom' cashing system from the above setting, then please enter here the absolute field's name in 'user' table that represents your preferred custom cashing system.]]></phrase>
+			<phrase name="setting_phpkd_vbabc_cash_custom_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Custom Cash]]></phrase>
+			<phrase name="setting_phpkd_vbabc_cash_desc" date="1297071260" username="PHPKD" version="4.1.100"><![CDATA[Select your preferred cashing system to use by default for this product's actions/activities. This product has it's own cashing system, but it can integrate with other cashing system as well.<br />
+You've multiple options to choose from:<br />
+<ul class="smallfont">
+	<li><strong>Default</strong></li>
+	<li><strong>uCash</strong></li>
+	<li><strong>vCash</strong></li>
+	<li><strong>vBCredits</strong></li>
+	<li><strong>Reputation</strong></li>
+	<li><strong>Custom</strong></li>
+</ul>]]></phrase>
+			<phrase name="setting_phpkd_vbabc_cash_title" date="1297071260" username="PHPKD" version="4.1.100"><![CDATA[Cashing System]]></phrase>
+			<phrase name="setting_phpkd_vbabc_closedreason_desc" date="1297071589" username="PHPKD" version="4.1.100"><![CDATA[The text that is presented when the "PHPKD - vB Automated Bookie Center" is closed.]]></phrase>
+			<phrase name="setting_phpkd_vbabc_closedreason_title" date="1297071589" username="PHPKD" version="4.1.100"><![CDATA[Reason For Turning Off]]></phrase>
+			<phrase name="setting_phpkd_vbabc_daterange_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Beginning and ending years in the format of: <strong>2009-2015</strong>]]></phrase>
+			<phrase name="setting_phpkd_vbabc_daterange_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Date Range]]></phrase>
+			<phrase name="setting_phpkd_vbabc_inex_users_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[You can specify certain users to be able to use this product's features, or to exclude others from being able to use it at all.<br />
+You've multiple options to choose from:<br />
+<ul class="smallfont">
+	<li><strong>Include All Users</strong></li>
+	<li><strong>Include Specific Users</strong></li>
+	<li><strong>Exclude Specific Users</strong></li>
+</ul>
+Select "Include All Users" to check all users' posts, or select "Include Specific Users" to check only those specific users' posts -defined in the following setting-, or select "Exclude Specific Users" to check all users' posts <strong>except</strong> those specific users' posts -defined in the following setting-.]]></phrase>
+			<phrase name="setting_phpkd_vbabc_inex_users_ids_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[If you've chosen "Include Specific Users" OR "Exclude Specific Users" from the above setting, then you've to enter those specified user IDs here in this setting's field. Separate user IDs by normal English comma.]]></phrase>
+			<phrase name="setting_phpkd_vbabc_inex_users_ids_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Included/Excluded Users]]></phrase>
+			<phrase name="setting_phpkd_vbabc_inex_users_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Include/Exclude Users]]></phrase>
+			<phrase name="setting_phpkd_vbabc_licensekey_desc" date="1296578903" username="PHPKD" version="4.1.100"><![CDATA[Enter license key you've received, you can always obtain a copy of it from your customer area at <a href="http://www.phpkd.net" target="_blank">www.phpkd.net</a>. Note that "License Key" is sensitive, so make sure to copy & past it exactly.]]></phrase>
+			<phrase name="setting_phpkd_vbabc_licensekey_title" date="1296578903" username="PHPKD" version="4.1.100"><![CDATA[License Key]]></phrase>
+			<phrase name="setting_phpkd_vbabc_maxopts_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Maximum number of options a user can set for the bookie event.<br />
+Set this option to 0 to allow any number of options.]]></phrase>
+			<phrase name="setting_phpkd_vbabc_maxopts_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Maximum Bookie Event Options]]></phrase>
+			<phrase name="setting_phpkd_vbabc_optionlength_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Bookie event options will be limited to this number of characters.<br />
+Please choose a value larger than 0 and less than 251.]]></phrase>
+			<phrase name="setting_phpkd_vbabc_optionlength_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Bookie Event Option Length]]></phrase>
+			<phrase name="setting_phpkd_vbabc_script_desc" date="1296941838" username="PHPKD" version="4.1.100"><![CDATA[You can change the main script's name as you wish, this will have global effect, but you've also to change the actual physical file name on the server as well. <strong>(Default: phpkd_vbabc.php)</strong>]]></phrase>
+			<phrase name="setting_phpkd_vbabc_script_title" date="1296941838" username="PHPKD" version="4.1.100"><![CDATA[Script Name]]></phrase>
+			<phrase name="setting_phpkd_vbabc_settle_graceperiod_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Bets on any bookie event should be settled after the specified date when created. If it is not settled by certain days after that date, all bets are called off and stakes will be returned. Specify this grace period in which users should settle bookie events after event timeout (in days).]]></phrase>
+			<phrase name="setting_phpkd_vbabc_settle_graceperiod_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Settle Grace Period]]></phrase>
+			<phrase name="setting_phpkd_vbabc_timelimitadd_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Specify the time-limit (in minutes) within which the thread may have a bookie event added to it. '0' for unlimited!]]></phrase>
+			<phrase name="setting_phpkd_vbabc_timelimitadd_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Time Limit on Adding a Bookie Event to a Thread]]></phrase>
+			<phrase name="setting_phpkd_vbabc_timelimitedit_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Specify the time-limit (in minutes) within which the bookie event may be edited. '0' for unlimited!]]></phrase>
+			<phrase name="setting_phpkd_vbabc_timelimitedit_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Time Limit on Editing a Bookie Event in a Thread]]></phrase>
+			<phrase name="setting_phpkd_vbabc_titlelength_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Bookie event titles will be limited to this number of characters.<br />
+Please choose a value larger than 0 and less than 251.]]></phrase>
+			<phrase name="setting_phpkd_vbabc_titlelength_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Bookie Event Title Length]]></phrase>
+			<phrase name="setting_phpkd_vbabc_updatelastpost_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[If you set this option to 'Yes' the thread's last post time will be updated when: 1) a bet is placed, 2) bookie event settled, thereby returning it to the top of its parent forum listing.<br />
+Note that this option can cause confusion. The last post time of a thread will be changed with no visible post.]]></phrase>
+			<phrase name="setting_phpkd_vbabc_updatelastpost_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Update Thread Last Post on Bookie Event Bet/Settle]]></phrase>
+			<phrase name="settinggroup_phpkd_vbabc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[PHPKD - vB Automated Bookie Center 'Ultimate']]></phrase>
+		</phrasetype>
+	</phrases>
+	<options>
+		<settinggroup name="phpkd_vbabc" displayorder="10009">
+			<setting varname="phpkd_vbabc_active" displayorder="10">
+				<datatype>boolean</datatype>
+				<optioncode>yesno</optioncode>
+				<defaultvalue>0</defaultvalue>
+			</setting>
+			<setting varname="phpkd_vbabc_licensekey" displayorder="15">
+				<datatype>free</datatype>
+				<blacklist>1</blacklist>
+			</setting>
+			<setting varname="phpkd_vbabc_inex_users" displayorder="20">
+				<datatype>integer</datatype>
+				<optioncode>radio:piped
+0|phpkd_vbabc_inex_users_all
+1|phpkd_vbabc_inex_users_in
+2|phpkd_vbabc_inex_users_ex</optioncode>
+				<defaultvalue>0</defaultvalue>
+			</setting>
+			<setting varname="phpkd_vbabc_inex_users_ids" displayorder="30">
+				<datatype>free</datatype>
+			</setting>
+			<setting varname="phpkd_vbabc_cash" displayorder="60">
+				<datatype>free</datatype>
+				<optioncode>select:piped
+phpkd_vbabc|Default
+ucash|uCash
+vcash|vCash
+credits|vBCredits
+reputation|Reputation
+custom|Custom</optioncode>
+				<defaultvalue>phpkd_vbabc_cash</defaultvalue>
+			</setting>
+			<setting varname="phpkd_vbabc_cash_custom" displayorder="70">
+				<datatype>free</datatype>
+			</setting>
+			<setting varname="phpkd_vbabc_maxopts" displayorder="110">
+				<datatype>integer</datatype>
+				<defaultvalue>10</defaultvalue>
+			</setting>
+			<setting varname="phpkd_vbabc_timelimitadd" displayorder="120">
+				<datatype>number</datatype>
+				<defaultvalue>0</defaultvalue>
+			</setting>
+			<setting varname="phpkd_vbabc_timelimitedit" displayorder="125">
+				<datatype>number</datatype>
+				<defaultvalue>0</defaultvalue>
+			</setting>
+			<setting varname="phpkd_vbabc_updatelastpost" displayorder="130">
+				<datatype>boolean</datatype>
+				<optioncode>yesno</optioncode>
+				<defaultvalue>1</defaultvalue>
+			</setting>
+			<setting varname="phpkd_vbabc_optionlength" displayorder="140">
+				<datatype>integer</datatype>
+				<validationcode><![CDATA[return ($data > 0 AND $data < 251);]]></validationcode>
+				<defaultvalue>100</defaultvalue>
+			</setting>
+			<setting varname="phpkd_vbabc_titlelength" displayorder="140">
+				<datatype>integer</datatype>
+				<validationcode><![CDATA[return ($data > 0 AND $data < 251);]]></validationcode>
+				<defaultvalue>85</defaultvalue>
+			</setting>
+			<setting varname="phpkd_vbabc_settle_graceperiod" displayorder="150">
+				<datatype>integer</datatype>
+				<defaultvalue>7</defaultvalue>
+			</setting>
+			<setting varname="phpkd_vbabc_daterange" displayorder="160">
+				<datatype>free</datatype>
+				<defaultvalue>2011-2015</defaultvalue>
+			</setting>
+			<setting varname="phpkd_vbabc_script" displayorder="170">
+				<datatype>free</datatype>
+				<defaultvalue>phpkd_vbabc.php</defaultvalue>
+			</setting>
+			<setting varname="phpkd_vbabc_closedreason" displayorder="190">
+				<datatype>free</datatype>
+				<optioncode>textarea</optioncode>
+				<defaultvalue><![CDATA[<p>Sorry, the bookie center is unavailable at the moment while we are testing some functionality.</p>
+<p>We will be back soon...</p>]]></defaultvalue>
+			</setting>
+		</settinggroup>
+	</options>
+	<helptopics>
+	</helptopics>
+	<cronentries>
+	</cronentries>
+	<faqentries>
+	</faqentries>
+</product>
+
+<!-- SVN: $Version: 4.1.100 $ - $Id: product-phpkd_vblvb.xml 210 2011-01-10 10:41:26Z PHPKD $ -->

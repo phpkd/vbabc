@@ -1,0 +1,57 @@
+﻿~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Brought to you by PHP KingDom (www.phpkd.net)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+PHPKD - vB Automated Bookie Center 'Ultimate' -- Upgrade Procedure:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     1. Upload required files to their appropriate places (ALLOW OVERWRITE):
+	|- phpkd_vbabc.php
+	|- includes
+	     + phpkd
+	          + vbabc
+		- class_core.php
+		- class_dm.php
+		- class_dml.php
+		- class_hooks.php
+		- class_install.php
+	     - md5_sums_phpkd_vbabc.php
+
+	     + xml
+	          - bitfield_phpkd_vbabc.xml
+	          - cpnav_phpkd_vbabc.xml
+
+	|- images
+	     + phpkd
+	          + vbabc
+		- abandon.png
+		- delete.png
+		- edit.png
+		- money.png
+		- switch.png
+
+     2. Import the product's XML file "product-phpkd_vbabc.xml" from AdminCP (ALLOW OVERWRITE).
+
+     3. Get you license key & enter it in your product's settings:
+	Get from: Customer Area » My Packages » vB Automated Bookie Center 'Ultimate' » Licenses » License Key
+	Enter Here: AdminCP » vB Automated Bookie Center » Settings » License Key
+
+     4. Activate & Configure product's settings as preferred.
+
+     5. [OPTIONAL] Translations: vBulletin AdminCP » Languages & Phrases » Download / Upload Languages » Import Language XML File (Make sure that your forum's Character Set is equivalent to the imported language as follow):
+	     Arabic » ISO-8859-6
+	     English, French, Spanish » ISO-8859-1
+	     Greek » ISO-8859-7
+	     Italian » ISO-8859-16
+	     Russian » ISO-8859-5
+	     Turkish » ISO-8859-9
+	     You can change language file's encoding before import to whatever encoding you wish/your forum works on (ex: UTF-8) using the wonderful application "Encoding Master" (http://www.elfdata.com/encodingmaster/).
+
+     6. You're Done :).
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Brought to you by PHP KingDom (www.phpkd.net)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+$Version: 4.1.100 $ - $Id: upgrade.txt 210 2011-01-10 10:41:26Z PHPKD $

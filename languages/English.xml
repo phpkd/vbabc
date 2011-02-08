@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<language name="MASTER LANGUAGE" vbversion="4.1.0" product="phpkd_vbabc" type="master">
+	<skippedgroups>
+		<skippedgroup>cphelptext</skippedgroup>
+	</skippedgroups>
+	<phrasetype name="Control Panel Home Pages" fieldname="cphome">
+		<phrase name="phpkd_vblvb_nav" date="1295708626" username="PHPKD" version="4.1.100"><![CDATA[Automated Bookie Center]]></phrase>
+		<phrase name="phpkd_vblvb_nav_settings" date="1295708551" username="PHPKD" version="4.1.100"><![CDATA[Settings]]></phrase>
+	</phrasetype>
+	<phrasetype name="Control Panel Options" fieldname="cpoption">
+		<phrase name="phpkd_vbabc_bets_current" date="1292164791" username="PHPKD" version="4.1.100"><![CDATA[Current Bets]]></phrase>
+		<phrase name="phpkd_vbabc_bets_lost" date="1292164796" username="PHPKD" version="4.1.100"><![CDATA[Lost Bets]]></phrase>
+		<phrase name="phpkd_vbabc_bets_won" date="1292164801" username="PHPKD" version="4.1.100"><![CDATA[Won Bets]]></phrase>
+		<phrase name="phpkd_vbabc_cash" date="1292164807" username="PHPKD" version="4.1.100"><![CDATA[Available Cash]]></phrase>
+		<phrase name="phpkd_vbabc_inex_users_all" date="1292136370" username="PHPKD" version="4.1.100"><![CDATA[Include All Users]]></phrase>
+		<phrase name="phpkd_vbabc_inex_users_ex" date="1292136389" username="PHPKD" version="4.1.100"><![CDATA[Exclude Specific Users]]></phrase>
+		<phrase name="phpkd_vbabc_inex_users_in" date="1292136383" username="PHPKD" version="4.1.100"><![CDATA[Include Specific Users]]></phrase>
+	</phrasetype>
+	<phrasetype name="Permissions" fieldname="cppermission">
+		<phrase name="can_administer_phpkd_vbabc" date="1297074458" username="PHPKD" version="4.1.100"><![CDATA[Can Administer vB Automated Bookie Center]]></phrase>
+		<phrase name="phpkd_vbabc" date="1293737712" username="PHPKD" version="4.1.100"><![CDATA[PHPKD - vB Automated Bookie Center Permissions]]></phrase>
+		<phrase name="phpkd_vbabc_canadd" date="1292141717" username="PHPKD" version="4.1.100"><![CDATA[Can Add Bookie Events]]></phrase>
+		<phrase name="phpkd_vbabc_canbet" date="1292141722" username="PHPKD" version="4.1.100"><![CDATA[Can Bet On Bookie Events]]></phrase>
+		<phrase name="phpkd_vbabc_canedit" date="1293738581" username="PHPKD" version="4.1.100"><![CDATA[Can Edit Own Bookie Events]]></phrase>
+		<phrase name="phpkd_vbabc_canmoderate" date="1296964933" username="PHPKD" version="4.1.100"><![CDATA[Can Moderate Bookie Events<dfn>This permission grants full control of bookie events and overrides all the above permissions when enabled (add/edit/bet/settle/delete/abandon).</dfn>]]></phrase>
+		<phrase name="phpkd_vbabc_canprivatebet" date="1292186970" username="PHPKD" version="4.1.100"><![CDATA[Can Private Bet On Bookie Events]]></phrase>
+		<phrase name="phpkd_vbabc_cansettle" date="1295813897" username="PHPKD" version="4.1.100"><![CDATA[Can Settle Bookie Events]]></phrase>
+		<phrase name="phpkd_vbabc_canspecify" date="1292187027" username="PHPKD" version="4.1.100"><![CDATA[Can Specify Which/How Much Users To Bet]]></phrase>
+		<phrase name="phpkd_vbabc_canview" date="1292141733" username="PHPKD" version="4.1.100"><![CDATA[Can View Bookie Events]]></phrase>
+	</phrasetype>
+	<phrasetype name="Error Messages" fieldname="error">
+		<phrase name="phpkd_vbabc_already" date="1294000149" username="PHPKD" version="4.1.100"><![CDATA[You cannot add a bookie event to this thread because it already has one attached to it.]]></phrase>
+		<phrase name="phpkd_vbabc_betted" date="1295451334" username="PHPKD" version="4.1.100"><![CDATA[You have already betted on this bookie event. Please press back to return to it.]]></phrase>
+		<phrase name="phpkd_vbabc_eventnotclosed" date="1295823437" username="PHPKD" version="4.1.100"><![CDATA[The bookie event you selected is not closed, it should be closed in order to be able to settle it. Please press back to return to it.]]></phrase>
+		<phrase name="phpkd_vbabc_eventnotopen" date="1295823419" username="PHPKD" version="4.1.100"><![CDATA[The bookie event you selected is not open, it should be open in order to be able to bet on it. Please press back to return to it.]]></phrase>
+		<phrase name="phpkd_vbabc_initialization_failed_file" date="1296578669" username="PHPKD" version="4.1.100"><![CDATA[Sorry, required initialization for "PHPKD - vB Automated Bookie Center" failed. Please make sure that the following file already uploaded and is readable "./includes/phpkd/vbabc/{1}".]]></phrase>
+		<phrase name="phpkd_vbabc_invalid_license" date="1296792257" username="PHPKD" version="4.1.100"><![CDATA[Sorry, this isn't a valid license. Please contact support at <a href="http://www.phpkd.net" target="_blank">www.phpkd.net</a> for a valid license!!]]></phrase>
+		<phrase name="phpkd_vbabc_invalid_license_key" date="1296792129" username="PHPKD" version="4.1.100"><![CDATA[Sorry, license key is <span style="color: #FF0000">NOT</span> valid, please enter a correct license key or contact support at <a href="http://www.phpkd.net" target="_blank">www.phpkd.net</a> for a valid license!!]]></phrase>
+		<phrase name="phpkd_vbabc_invalid_license_trail" date="1296793290" username="PHPKD" version="4.1.100"><![CDATA[Sorry, license key is <span style="color: #FF0000">NOT</span> valid, please get your correct license key from <a href="http://eshop.phpkd.net/customers/index.php" target="_blank">Customer Area</a> or contact support at <a href="http://www.phpkd.net" target="_blank">www.phpkd.net</a> for assistance!! Note that a valid license key for this product <span style="color: #FF0000">SHOULD</span> begin with 'TRAIL'.]]></phrase>
+		<phrase name="phpkd_vbabc_invalid_license_vbabc" date="1296793246" username="PHPKD" version="4.1.100"><![CDATA[Sorry, license key is <span style="color: #FF0000">NOT</span> valid, please get your correct license key from <a href="http://eshop.phpkd.net/customers/index.php" target="_blank">Customer Area</a> or contact support at <a href="http://www.phpkd.net" target="_blank">www.phpkd.net</a> for assistance!! Note that a valid license key for this product <span style="color: #FF0000">SHOULD</span> begin with 'VBABC'.]]></phrase>
+		<phrase name="phpkd_vbabc_invalidbet" date="1295826625" username="PHPKD" version="4.1.100"><![CDATA[Invalid bet! You either did not select an option to bet for, or entered an invalid value for your bet. Please press back to return to the bookie and try again.]]></phrase>
+		<phrase name="phpkd_vbabc_invalidsettle" date="1295827187" username="PHPKD" version="4.1.100"><![CDATA[Invalid settle! You have to choose either a winning option(s), or select the -no winners- option. Please press back to return to the bookie and try again.]]></phrase>
+		<phrase name="phpkd_vbabc_maximumbetters" date="1295519980" username="PHPKD" version="4.1.100"><![CDATA[Sorry, this bookie event reached it's maximum allowed betters. No more betting allowed. Please press back to return to it.]]></phrase>
+		<phrase name="phpkd_vbabc_maxpayafter" date="1294196837" username="PHPKD" version="4.1.100"><![CDATA[The value entered for timeout has exceeded the maximum possible value.]]></phrase>
+		<phrase name="phpkd_vbabc_maxtimeout" date="1293932112" username="PHPKD" version="4.1.100"><![CDATA[The value entered for timeout has exceeded the maximum possible value.]]></phrase>
+		<phrase name="phpkd_vbabc_missing" date="1294196306" username="PHPKD" version="4.1.100"><![CDATA[Please complete the title field, the group field and at least 2 option fields. Press the back button, correct the problem and try again.]]></phrase>
+		<phrase name="phpkd_vbabc_noenoughcash" date="1295880252" username="PHPKD" version="4.1.100"><![CDATA[Sorry, you don't have enough cash to bet on this bookie event. Please press back to return to it.]]></phrase>
+		<phrase name="phpkd_vbabc_notyou" date="1296076559" username="PHPKD" version="4.1.100"><![CDATA[Sorry, only one specific user allowed to bet on this bookie event, it's not you! Please press back to return to it.]]></phrase>
+		<phrase name="phpkd_vbabc_onlyonebet" date="1295519804" username="PHPKD" version="4.1.100"><![CDATA[Sorry, this bookie event doesn't allow multiple bets. Only one bet allowed. Please press back to return to it.]]></phrase>
+		<phrase name="phpkd_vbabc_optionlength" date="1294008364" username="PHPKD" version="4.1.100"><![CDATA[Bookie event options cannot exceed {1} characters. Option(s) <b>{2}</b> exceed this limitation.]]></phrase>
+		<phrase name="phpkd_vbabc_shouldconfirm" date="1296076587" username="PHPKD" version="4.1.100"><![CDATA[Sorry, you should confirm this action before processing it! Please press back to return to the bookie event & try again.]]></phrase>
+		<phrase name="phpkd_vbabc_timelimitadd" date="1295085876" username="PHPKD" version="4.1.100"><![CDATA[You can only add a bookie event to a thread within {1} minutes of posting the thread.]]></phrase>
+		<phrase name="phpkd_vbabc_timelimitedit" date="1295085929" username="PHPKD" version="4.1.100"><![CDATA[You can only edit a bookie event in a thread within {1} minutes of posting the thread.]]></phrase>
+		<phrase name="phpkd_vbabc_timeoutpayafter" date="1294386795" username="PHPKD" version="4.1.100"><![CDATA["Bookie Bets Paid After" can't be before "Bookie Event Timeout", it should be after!]]></phrase>
+	</phrasetype>
+	<phrasetype name="Forum-Related" fieldname="forum">
+		<phrase name="phpkd_vbabc_active" date="1294869653" username="PHPKD" version="4.1.100"><![CDATA[Allow Bookie Events]]></phrase>
+		<phrase name="phpkd_vbabc_oneonone" date="1294869671" username="PHPKD" version="4.1.100"><![CDATA[Allow One on One Betting]]></phrase>
+		<phrase name="phpkd_vbabc_options" date="1294851352" username="PHPKD" version="4.1.100"><![CDATA[PHPKD - vB Automated Bookie Center Options]]></phrase>
+	</phrasetype>
+	<phrasetype name="Forum Display" fieldname="forumdisplay">
+		<phrase name="phpkd_vbabc_event" date="1295445533" username="PHPKD" version="4.1.100"><![CDATA[Bookie Event]]></phrase>
+	</phrasetype>
+	<phrasetype name="Front-End Redirect Messages" fieldname="frontredirect">
+		<phrase name="phpkd_vbabc_betthanks" date="1296410716" username="PHPKD" version="4.1.100"><![CDATA[Thank you for betting on this bookie event. You are now being taken back to the bookie event.]]></phrase>
+		<phrase name="phpkd_vbabc_eventabandon" date="1296410581" username="PHPKD" version="4.1.100"><![CDATA[The bookie event has been successfully abandoned. You are now being taken back to the bookie event.]]></phrase>
+		<phrase name="phpkd_vbabc_eventdelete" date="1296410687" username="PHPKD" version="4.1.100"><![CDATA[The bookie event has been successfully deleted. You are now being taken back to the bookie event.]]></phrase>
+		<phrase name="phpkd_vbabc_eventopenclose" date="1296410595" username="PHPKD" version="4.1.100"><![CDATA[The bookie event has been successfully $action. You are now being taken back to the bookie event.]]></phrase>
+		<phrase name="phpkd_vbabc_eventsettle" date="1296410645" username="PHPKD" version="4.1.100"><![CDATA[The bookie event has been successfully settled. You are now being taken back to the bookie event.]]></phrase>
+	</phrasetype>
+	<phrasetype name="GLOBAL" fieldname="global">
+		<phrase name="phpkd_vbabc_results" date="1293761435" username="PHPKD" version="4.1.100"><![CDATA[View Bookie Results]]></phrase>
+	</phrasetype>
+	<phrasetype name="Posting" fieldname="posting">
+		<phrase name="phpkd_vbabc_abandoned" date="1294636508" username="PHPKD" version="4.1.100"><![CDATA[This bookie event has been abandoned!]]></phrase>
+		<phrase name="phpkd_vbabc_add" date="1297088265" username="PHPKD" version="4.1.100"><![CDATA[Add a Bookie Event to this Thread]]></phrase>
+		<phrase name="phpkd_vbabc_allow_multiple_choice" date="1293824070" username="PHPKD" version="4.1.100"><![CDATA[Allow multiple choice: Give users the ability to select more than one option]]></phrase>
+		<phrase name="phpkd_vbabc_bet_now" date="1294570212" username="PHPKD" version="4.1.100"><![CDATA[Bet Now]]></phrase>
+		<phrase name="phpkd_vbabc_betters" date="1294594449" username="PHPKD" version="4.1.100"><![CDATA[Betters]]></phrase>
+		<phrase name="phpkd_vbabc_chalengedcount" date="1295537471" username="PHPKD" version="4.1.100"><![CDATA[Bookie Event Challenged Users]]></phrase>
+		<phrase name="phpkd_vbabc_chalengedcount_explain" date="1295537728" username="PHPKD" version="4.1.100"><![CDATA[How many users can participate in this bookie event & bet on it? You can limit challenged users or leave it unlimited. Leave this empty or put '0' for unlimited.]]></phrase>
+		<phrase name="phpkd_vbabc_confirm_abandon" date="1297180892" username="PHPKD" version="4.1.100"><![CDATA[Are you sure you want to Abandon this bookie event?\n(Please note that this action can NOT be undone)]]></phrase>
+		<phrase name="phpkd_vbabc_confirm_delete" date="1297180877" username="PHPKD" version="4.1.100"><![CDATA[Are you sure you want to Delete this bookie event?\n(Please note that this action can NOT be undone)]]></phrase>
+		<phrase name="phpkd_vbabc_confirm_openclose" date="1296411206" username="PHPKD" version="4.1.100"><![CDATA[Are you sure you want to Open/Close this bookie event?\n(Toggle Bookie Event Status)]]></phrase>
+		<phrase name="phpkd_vbabc_create" date="1297088469" username="PHPKD" version="4.1.100"><![CDATA[Create a bookie event with this number of options]]></phrase>
+		<phrase name="phpkd_vbabc_event" date="1294567072" username="PHPKD" version="4.1.100"><![CDATA[Bookie Event]]></phrase>
+		<phrase name="phpkd_vbabc_eventabandon" date="1294744144" username="PHPKD" version="4.1.100"><![CDATA[Abandon Bookie Event]]></phrase>
+		<phrase name="phpkd_vbabc_eventadd" date="1295110946" username="PHPKD" version="4.1.100"><![CDATA[Add Bookie Event]]></phrase>
+		<phrase name="phpkd_vbabc_eventdelete" date="1294744128" username="PHPKD" version="4.1.100"><![CDATA[Delete Bookie Event]]></phrase>
+		<phrase name="phpkd_vbabc_eventedit" date="1294567417" username="PHPKD" version="4.1.100"><![CDATA[Edit Bookie Event]]></phrase>
+		<phrase name="phpkd_vbabc_eventopenclose" date="1296410935" username="PHPKD" version="4.1.100"><![CDATA[Toggle Bookie Event Status: Open/Close]]></phrase>
+		<phrase name="phpkd_vbabc_group" date="1293838045" username="PHPKD" version="4.1.100"><![CDATA[Bookie Event Group]]></phrase>
+		<phrase name="phpkd_vbabc_make_bets_public" date="1293826332" username="PHPKD" version="4.1.100"><![CDATA[Make bets public]]></phrase>
+		<phrase name="phpkd_vbabc_multiple_note" date="1294594316" username="PHPKD" version="4.1.100"><![CDATA[Multiple Choice Bookie Event]]></phrase>
+		<phrase name="phpkd_vbabc_na" date="1297104104" username="PHPKD" version="4.1.100"><![CDATA[-]]></phrase>
+		<phrase name="phpkd_vbabc_nowinners" date="1294765776" username="PHPKD" version="4.1.100"><![CDATA[No Winners]]></phrase>
+		<phrase name="phpkd_vbabc_odds" date="1294627221" username="PHPKD" version="4.1.100"><![CDATA[Odds]]></phrase>
+		<phrase name="phpkd_vbabc_oddsfrom" date="1293837819" username="PHPKD" version="4.1.100"><![CDATA[Odds]]></phrase>
+		<phrase name="phpkd_vbabc_oddsto" date="1293837814" username="PHPKD" version="4.1.100"><![CDATA[To]]></phrase>
+		<phrase name="phpkd_vbabc_option_x" date="1293836830" username="PHPKD" version="4.1.100"><![CDATA[Option {1}]]></phrase>
+		<phrase name="phpkd_vbabc_options" date="1293823375" username="PHPKD" version="4.1.100"><![CDATA[Bookie Event Options]]></phrase>
+		<phrase name="phpkd_vbabc_options_keep_short" date="1293823773" username="PHPKD" version="4.1.100"><![CDATA[Remember to keep the bookie event options short and to the point]]></phrase>
+		<phrase name="phpkd_vbabc_options_number" date="1293823694" username="PHPKD" version="4.1.100"><![CDATA[Number of bookie event options]]></phrase>
+		<phrase name="phpkd_vbabc_options_update" date="1293826265" username="PHPKD" version="4.1.100"><![CDATA[Update options]]></phrase>
+		<phrase name="phpkd_vbabc_outcome" date="1294626034" username="PHPKD" version="4.1.100"><![CDATA[Outcome]]></phrase>
+		<phrase name="phpkd_vbabc_payafter" date="1293826905" username="PHPKD" version="4.1.100"><![CDATA[Bookie Bets Paid After]]></phrase>
+		<phrase name="phpkd_vbabc_payafter_explain" date="1293827385" username="PHPKD" version="4.1.100"><![CDATA[Bets on this bookie event can be settled after this date. If you don't settle this event by {1} days after this date, all bets are called off and stakes will be returned.]]></phrase>
+		<phrase name="phpkd_vbabc_post" date="1297088679" username="PHPKD" version="4.1.100"><![CDATA[Post a Bookie Event]]></phrase>
+		<phrase name="phpkd_vbabc_preview" date="1293823965" username="PHPKD" version="4.1.100"><![CDATA[Preview Bookie Event]]></phrase>
+		<phrase name="phpkd_vbabc_privatebet" date="1294637150" username="PHPKD" version="4.1.100"><![CDATA[Private Bet]]></phrase>
+		<phrase name="phpkd_vbabc_public_note" date="1294594294" username="PHPKD" version="4.1.100"><![CDATA[Public Bookie Event]]></phrase>
+		<phrase name="phpkd_vbabc_result" date="1297099603" username="PHPKD" version="4.1.100"><![CDATA[Result]]></phrase>
+		<phrase name="phpkd_vbabc_settings" date="1293818777" username="PHPKD" version="4.1.100"><![CDATA[Bookie Event Settings]]></phrase>
+		<phrase name="phpkd_vbabc_settle" date="1294636740" username="PHPKD" version="4.1.100"><![CDATA[Settle]]></phrase>
+		<phrase name="phpkd_vbabc_settle_now" date="1297099921" username="PHPKD" version="4.1.100"><![CDATA[Settle Now]]></phrase>
+		<phrase name="phpkd_vbabc_settled" date="1294636516" username="PHPKD" version="4.1.100"><![CDATA[This bookie event has been settled!]]></phrase>
+		<phrase name="phpkd_vbabc_showresults" date="1294570258" username="PHPKD" version="4.1.100"><![CDATA[Show Results]]></phrase>
+		<phrase name="phpkd_vbabc_stake" date="1294627282" username="PHPKD" version="4.1.100"><![CDATA[Stake]]></phrase>
+		<phrase name="phpkd_vbabc_submit" date="1293824021" username="PHPKD" version="4.1.100"><![CDATA[Submit Bookie Event]]></phrase>
+		<phrase name="phpkd_vbabc_timeout" date="1294386740" username="PHPKD" version="4.1.100"><![CDATA[Bookie Event Timeout]]></phrase>
+		<phrase name="phpkd_vbabc_timeout_explain" date="1293827011" username="PHPKD" version="4.1.100"><![CDATA[This bookie event will be closed automatically after a period of time, enter a number of days here after which new bets can't be accepted.]]></phrase>
+		<phrase name="phpkd_vbabc_title" date="1293823323" username="PHPKD" version="4.1.100"><![CDATA[Bookie Event Title]]></phrase>
+		<phrase name="phpkd_vbabc_totalbets" date="1294627245" username="PHPKD" version="4.1.100"><![CDATA[Total Bets]]></phrase>
+		<phrase name="phpkd_vbabc_totalstaked" date="1294627267" username="PHPKD" version="4.1.100"><![CDATA[Total Staked]]></phrase>
+		<phrase name="phpkd_vbabc_will_close_on_x_at_y" date="1294569150" username="PHPKD" version="4.1.100"><![CDATA[This bookie event will close on <strong>{1}</strong> at <strong>{2}</strong>]]></phrase>
+		<phrase name="phpkd_vbabc_will_closed_on_x_at_y" date="1294636591" username="PHPKD" version="4.1.100"><![CDATA[This bookie event supposed to be closed on <strong>{1}</strong> at <strong>{2}</strong>]]></phrase>
+		<phrase name="phpkd_vbabc_will_paid_on_x_at_y" date="1294636609" username="PHPKD" version="4.1.100"><![CDATA[This bookie event supposed to be paid on <strong>{1}</strong> at <strong>{2}</strong>]]></phrase>
+		<phrase name="phpkd_vbabc_will_pay_on_x_at_y" date="1294569178" username="PHPKD" version="4.1.100"><![CDATA[This bookie event will pay on <strong>{1}</strong> at <strong>{2}</strong>]]></phrase>
+		<phrase name="phpkd_vbabc_won" date="1297100295" username="PHPKD" version="4.1.100"><![CDATA[Won!]]></phrase>
+		<phrase name="phpkd_vbabc_zoneoffset" date="1293840813" username="PHPKD" version="4.1.100"><![CDATA[Time Zone]]></phrase>
+	</phrasetype>
+	<phrasetype name="Style Tools" fieldname="style">
+		<phrase name="phpkd_vbabc" date="1295447579" username="PHPKD" version="4.1.100"><![CDATA[PHPKD - vB Automated Bookie Center]]></phrase>
+		<phrase name="stylevar_imgdir_phpkd_vbabc_description" date="1296144324" username="PHPKD" version="4.1.0" />
+		<phrase name="stylevar_imgdir_phpkd_vbabc_name" date="1296144324" username="PHPKD" version="4.1.0"><![CDATA[PHPKD - vB Automated Bookie Center Images Directory]]></phrase>
+	</phrasetype>
+	<phrasetype name="vBulletin Settings" fieldname="vbsettings">
+		<phrase name="setting_phpkd_vbabc_active_desc" date="1297072810" username="PHPKD" version="4.1.100"><![CDATA[Choose whether "PHPKD - vB Automated Bookie Center" is active or not (global switch).]]></phrase>
+		<phrase name="setting_phpkd_vbabc_active_title" date="1297072810" username="PHPKD" version="4.1.100"><![CDATA[Product Active]]></phrase>
+		<phrase name="setting_phpkd_vbabc_cash_custom_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[If you've chosen to use 'Custom' cashing system from the above setting, then please enter here the absolute field's name in 'user' table that represents your preferred custom cashing system.]]></phrase>
+		<phrase name="setting_phpkd_vbabc_cash_custom_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Custom Cash]]></phrase>
+		<phrase name="setting_phpkd_vbabc_cash_desc" date="1297071260" username="PHPKD" version="4.1.100"><![CDATA[Select your preferred cashing system to use by default for this product's actions/activities. This product has it's own cashing system, but it can integrate with other cashing system as well.<br />
+You've multiple options to choose from:<br />
+<ul class="smallfont">
+	<li><strong>Default</strong></li>
+	<li><strong>uCash</strong></li>
+	<li><strong>vCash</strong></li>
+	<li><strong>vBCredits</strong></li>
+	<li><strong>Reputation</strong></li>
+	<li><strong>Custom</strong></li>
+</ul>]]></phrase>
+		<phrase name="setting_phpkd_vbabc_cash_title" date="1297071260" username="PHPKD" version="4.1.100"><![CDATA[Cashing System]]></phrase>
+		<phrase name="setting_phpkd_vbabc_closedreason_desc" date="1297071589" username="PHPKD" version="4.1.100"><![CDATA[The text that is presented when the "PHPKD - vB Automated Bookie Center" is closed.]]></phrase>
+		<phrase name="setting_phpkd_vbabc_closedreason_title" date="1297071589" username="PHPKD" version="4.1.100"><![CDATA[Reason For Turning Off]]></phrase>
+		<phrase name="setting_phpkd_vbabc_daterange_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Beginning and ending years in the format of: <strong>2009-2015</strong>]]></phrase>
+		<phrase name="setting_phpkd_vbabc_daterange_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Date Range]]></phrase>
+		<phrase name="setting_phpkd_vbabc_inex_users_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[You can specify certain users to be able to use this product's features, or to exclude others from being able to use it at all.<br />
+You've multiple options to choose from:<br />
+<ul class="smallfont">
+	<li><strong>Include All Users</strong></li>
+	<li><strong>Include Specific Users</strong></li>
+	<li><strong>Exclude Specific Users</strong></li>
+</ul>
+Select "Include All Users" to check all users' posts, or select "Include Specific Users" to check only those specific users' posts -defined in the following setting-, or select "Exclude Specific Users" to check all users' posts <strong>except</strong> those specific users' posts -defined in the following setting-.]]></phrase>
+		<phrase name="setting_phpkd_vbabc_inex_users_ids_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[If you've chosen "Include Specific Users" OR "Exclude Specific Users" from the above setting, then you've to enter those specified user IDs here in this setting's field. Separate user IDs by normal English comma.]]></phrase>
+		<phrase name="setting_phpkd_vbabc_inex_users_ids_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Included/Excluded Users]]></phrase>
+		<phrase name="setting_phpkd_vbabc_inex_users_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Include/Exclude Users]]></phrase>
+		<phrase name="setting_phpkd_vbabc_licensekey_desc" date="1296578903" username="PHPKD" version="4.1.100"><![CDATA[Enter license key you've received, you can always obtain a copy of it from your customer area at <a href="http://www.phpkd.net" target="_blank">www.phpkd.net</a>. Note that "License Key" is sensitive, so make sure to copy & past it exactly.]]></phrase>
+		<phrase name="setting_phpkd_vbabc_licensekey_title" date="1296578903" username="PHPKD" version="4.1.100"><![CDATA[License Key]]></phrase>
+		<phrase name="setting_phpkd_vbabc_maxopts_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Maximum number of options a user can set for the bookie event.<br />
+Set this option to 0 to allow any number of options.]]></phrase>
+		<phrase name="setting_phpkd_vbabc_maxopts_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Maximum Bookie Event Options]]></phrase>
+		<phrase name="setting_phpkd_vbabc_optionlength_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Bookie event options will be limited to this number of characters.<br />
+Please choose a value larger than 0 and less than 251.]]></phrase>
+		<phrase name="setting_phpkd_vbabc_optionlength_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Bookie Event Option Length]]></phrase>
+		<phrase name="setting_phpkd_vbabc_script_desc" date="1296941838" username="PHPKD" version="4.1.100"><![CDATA[You can change the main script's name as you wish, this will have global effect, but you've also to change the actual physical file name on the server as well. <strong>(Default: phpkd_vbabc.php)</strong>]]></phrase>
+		<phrase name="setting_phpkd_vbabc_script_title" date="1296941838" username="PHPKD" version="4.1.100"><![CDATA[Script Name]]></phrase>
+		<phrase name="setting_phpkd_vbabc_settle_graceperiod_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Bets on any bookie event should be settled after the specified date when created. If it is not settled by certain days after that date, all bets are called off and stakes will be returned. Specify this grace period in which users should settle bookie events after event timeout (in days).]]></phrase>
+		<phrase name="setting_phpkd_vbabc_settle_graceperiod_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Settle Grace Period]]></phrase>
+		<phrase name="setting_phpkd_vbabc_timelimitadd_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Specify the time-limit (in minutes) within which the thread may have a bookie event added to it. '0' for unlimited!]]></phrase>
+		<phrase name="setting_phpkd_vbabc_timelimitadd_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Time Limit on Adding a Bookie Event to a Thread]]></phrase>
+		<phrase name="setting_phpkd_vbabc_timelimitedit_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Specify the time-limit (in minutes) within which the bookie event may be edited. '0' for unlimited!]]></phrase>
+		<phrase name="setting_phpkd_vbabc_timelimitedit_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Time Limit on Editing a Bookie Event in a Thread]]></phrase>
+		<phrase name="setting_phpkd_vbabc_titlelength_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Bookie event titles will be limited to this number of characters.<br />
+Please choose a value larger than 0 and less than 251.]]></phrase>
+		<phrase name="setting_phpkd_vbabc_titlelength_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Bookie Event Title Length]]></phrase>
+		<phrase name="setting_phpkd_vbabc_updatelastpost_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[If you set this option to 'Yes' the thread's last post time will be updated when: 1) a bet is placed, 2) bookie event settled, thereby returning it to the top of its parent forum listing.<br />
+Note that this option can cause confusion. The last post time of a thread will be changed with no visible post.]]></phrase>
+		<phrase name="setting_phpkd_vbabc_updatelastpost_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Update Thread Last Post on Bookie Event Bet/Settle]]></phrase>
+		<phrase name="settinggroup_phpkd_vbabc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[PHPKD - vB Automated Bookie Center 'Ultimate']]></phrase>
+	</phrasetype>
+</language>
+
+<!-- SVN: $Version: 4.1.100 $ - $Id: English.xml 210 2011-01-10 10:41:26Z PHPKD $ -->

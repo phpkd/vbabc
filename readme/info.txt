@@ -1,0 +1,277 @@
+﻿~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Brought to you by PHP KingDom (www.phpkd.net)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Name:
+~~~~~~
+     * PHPKD - vB Automated Bookie Center 'Ultimate'
+
+
+Version:
+~~~~~~~~~
+     * 4.1.100
+
+
+Description:
+~~~~~~~~~~~~~
+     * This product is a 'bookmakers' or betting system that allows authorized users to post events & outcomes and then bet each others on it. Each outcome has it's own set of odds which can be modified through the life of an event, winning users awarded.
+
+
+Compatible With:
+~~~~~~~~~~~~~~~~~~~~~~~~~
+     * All 4.0.x/4.1.x vBulletin versions.
+
+
+Requirements:
+~~~~~~~~~~~~~~
+     * vBulletin version 4.0.x/4.1.x
+
+
+License:
+~~~~~~~~~
+     * http://info.phpkd.net/en/license/commercial/
+
+
+Helpful links:
+~~~~~~~~~~~~~~
+     * Bug Reports: http://forum.phpkd.net/project.php?do=issuelist&projectid=2&issuetypeid=bug
+     * Feature Requests: http://forum.phpkd.net/project.php?do=issuelist&projectid=2&issuetypeid=feature
+
+
+Features:
+~~~~~~~~~~
+     |- General Features:-
+	* 100% OOP.
+	* MD5 checked.
+	* Fully Phrased.
+	* Fully Supported.
+	* Fully Automated.
+	* Accurate Processing.
+	* Professionally Coded.
+	* Detailed Documentation.
+	* Per forum options applied.
+	* Usergroup permissions applied.
+	* Doesn't require any manual edits.
+	* Depends on & uses default vBulletin techniques with full compatibility.
+	* Board Load Zero Queries, queries executed only when processing pure bookie related tasks.
+	* Ability to set administrator permissions, so certain admins can control the product & others can't.
+	* The product's code base is very solid, and is very rich as well with a 'plug-and-play' architecture for easier expansion & for much more flexibility.
+
+
+     |- Specific Features:-
+	* AdminCP Options:
+	     o Product Active
+	          - Choose whether "PHPKD - vB Automated Bookie Center" is active or not (global switch).
+
+	     o Include/Exclude Users
+	          - You can specify certain users to be able to use this product's features, or to exclude others from being able to use it at all.
+	          - You've multiple options to choose from:
+		+ Include All Users
+		+ Include Specific Users
+		+ Exclude Specific Users
+	          - Select "Include All Users" to check all users' posts, or select "Include Specific Users" to check only those specific users' posts -defined in the following setting-, or select "Exclude Specific Users" to check all users' posts except those specific users' posts -defined in the following setting-.
+
+	     o Included/Excluded Users
+	          - If you've chosen "Include Specific Users" OR "Exclude Specific Users" from the above setting, then you've to enter those specified user IDs here in this setting's field. Separate user IDs by normal English comma.
+
+	     o Cashing System
+	          - Select your preferred cashing system to use by default for this product's actions/activities. This product has it's own cashing system, but it can integrate with other cashing system as well.
+	          - You've multiple options to choose from:
+		+ Default
+		+ uCash
+		+ vCash
+		+ vBCredits
+		+ Reputation
+		+ Custom
+
+	     o Custom Cash
+	          - If you've chosen to use 'Custom' cashing system from the above setting, then please enter here the absolute field's name in 'user' table that represents your preferred custom cashing system.
+
+	     o Maximum Bookie Event Options
+	          - Maximum number of options a user can set for the bookie event.
+	          - Set this option to 0 to allow any number of options.
+
+	     o Time Limit on Adding a Bookie Event to a Thread
+	          - Specify the time-limit (in minutes) within which the thread may have a bookie event added to it. '0' for unlimited!
+
+	     o Time Limit on Editing a Bookie Event in a Thread
+	          - Specify the time-limit (in minutes) within which the bookie event may be edited. '0' for unlimited!
+
+	     o Update Thread Last Post on Bookie Event Bet/Settle
+	          - If you set this option to 'Yes' the thread's last post time will be updated when: 1) a bet is placed, 2) bookie event settled, thereby returning it to the top of its parent forum listing.
+	          - Note that this option can cause confusion. The last post time of a thread will be changed with no visible post.
+
+	     o Bookie Event Option Length
+	          - Bookie event options will be limited to this number of characters.
+	          - Please choose a value larger than 0 and less than 251.
+
+	     o Bookie Event Title Length
+	          - Bookie event titles will be limited to this number of characters.
+	          - Please choose a value larger than 0 and less than 251.
+
+	     o Settle Grace Period
+	          - Bets on any bookie event should be settled after the specified date when created. If it is not settled by certain days after that date, all bets are called off and stakes will be returned. Specify this grace period in which users should settle bookie events after event timeout (in days).
+
+	     o Date Range
+	          - Beginning and ending years in the format of: 2009-2015
+
+	     o Script Name
+	          - You can change the main script's name as you wish, this will have global effect, but you've also to change the actual physical file name on the server as well. (Default: phpkd_vbabc.php)
+
+	     o Reason For Turning Off
+	          - The text that is presented when the "PHPKD - vB Automated Bookie Center" is closed.
+
+
+Translations:
+~~~~~~~~~~~~~~~~~
+     .. Submit new translation & get free 'Ultimate' edition!
+
+
+Installation Procedure:
+~~~~~~~~~~~~~~~~~~~~~~~~
+     1. Upload required files to their appropriate places:
+	|- phpkd_vbabc.php
+	|- includes
+	     + phpkd
+	          + vbabc
+		- class_core.php
+		- class_dm.php
+		- class_dml.php
+		- class_hooks.php
+		- class_install.php
+	     - md5_sums_phpkd_vbabc.php
+
+	     + xml
+	          - bitfield_phpkd_vbabc.xml
+	          - cpnav_phpkd_vbabc.xml
+
+	|- images
+	     + phpkd
+	          + vbabc
+		- abandon.png
+		- delete.png
+		- edit.png
+		- money.png
+		- switch.png
+
+     2. Import the product's XML file "product-phpkd_vbabc.xml" from AdminCP.
+
+     3. Get you license key & enter it in your product's settings:
+	Get from: Customer Area » My Packages » vB Automated Bookie Center 'Ultimate' » Licenses » License Key
+	Enter Here: AdminCP » vB Automated Bookie Center » Settings » License Key
+
+     4. Activate & Configure product's settings as preferred.
+
+     5. [OPTIONAL] Translations: vBulletin AdminCP » Languages & Phrases » Download / Upload Languages » Import Language XML File (Make sure that your forum's Character Set is equivalent to the imported language as follow):
+	     Arabic » ISO-8859-6
+	     English, French, Spanish » ISO-8859-1
+	     Greek » ISO-8859-7
+	     Italian » ISO-8859-16
+	     Russian » ISO-8859-5
+	     Turkish » ISO-8859-9
+	     You can change language file's encoding before import to whatever encoding you wish/your forum works on (ex: UTF-8) using the wonderful application "Encoding Master" (http://www.elfdata.com/encodingmaster/).
+
+     6. You're Done :).
+
+
+Upgrade Procedure:
+~~~~~~~~~~~~~~~~~~~~~~~~
+     * Same as "Installation Procedure", but "Allow Overwrite" for both file uploads & product import.
+
+
+Controls:
+~~~~~~~~~~
+     * AdminCP Settings:
+	vBulletin AdminCP » vB Automated Bookie Center » Settings
+
+     * Administrator Permissions
+	vBulletin AdminCP » Usergroups » Administrator Permissions » Select Administrator » [Edit Permissions] » Can Administer vB Automated Bookie Center
+
+     * Usergroup Permissions
+	vBulletin AdminCP » Usergroups » Usergroup Manager » Select Usergroup » Edit » PHPKD - vB Automated Bookie Center Permissions
+
+     * Forum Options:
+	vBulletin AdminCP » Forums & Moderators » Forum Manager » Select Forum » Edit » PHPKD - vB Automated Bookie Center Options
+
+
+License:
+~~~~~~~~~
+     * http://info.phpkd.net/en/license/commercial/
+
+
+Help with:
+~~~~~~~~~~~
+     * Suggestions & feature requests to develop this product.
+     * Contributing any updates, upgrades and/or any new features.
+     * Translations to benefit more users (Translate the product & win a free 'Ultimate' edition - http://forum.phpkd.net/showthread.php?t=21).
+
+
+Known Issues:
+~~~~~~~~~~~~~
+     * None!
+
+
+Future TO-DO-LIST:
+~~~~~~~~~~~~~~~~~~~
+     * Post your suggestions!
+
+
+History:
+~~~~~~~~~
+     * v4.1.100 08/02/2010 10:10 AM UTC: First initial public release.
+
+
+Screen Shots:
+~~~~~~~~~~~~~~
+     * Available at: http://product.phpkd.net/en/commercial/vbabc/
+
+
+Technical Notes:
+~~~~~~~~~~~~~~~~~
+     * New Plugins: 20
+     * New Phrases: 143
+     * New Templates: 8
+     * Manual Template changes: 0
+     * Auto Template changes: 2
+     * New Files: 9
+     * Manual File Changes: 0
+     * New vBulletin Settings: 16
+     * New Usergroup Permissions: 8
+     * New Moderator Permissions: 0
+     * New Administrator Permissions: 1
+     * New Forum Options: 2
+     * New DB Tables: 5
+     * DB Alterations: 5
+     * New Cronjobs: 0
+     * New FAQ Items: 0
+     * New Help Topics: 0
+     * New Style Variables: 1
+        --------------------------
+     * Installation Level: Easy
+     * Installation Time: ~20 seconds
+
+
+Reference Links:
+~~~~~~~~~~~~~~~~~
+     * PHPKD.NET: http://go.phpkd.net/en/product/vbabc/
+
+
+Recent Products:
+~~~~~~~~~~~~~~~~~
+
+     * vB Link Verifier Bot
+	http://go.phpkd.net/en/product/vblvb/
+
+     * Advanced Quick Reply [ Attachments - Smilie box / menu - Thread Management - AJAX ]
+	http://go.phpkd.net/en/product/vbaqr/
+
+     * Advanced Quick Edit [ All Built-In BBCodes ]
+	http://go.phpkd.net/en/product/vbaqe/
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Brought to you by PHP KingDom (www.phpkd.net)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+$Version: 4.1.100 $ - $Id: info.txt 210 2011-01-10 10:41:26Z PHPKD $

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<bitfields product="vbulletin">
+	<bitfielddefs>
+		<group name="ugp">
+			<group name="phpkd_vbabc">
+				<bitfield name="canview"       group="phpkd_vbabc" phrase="phpkd_vbabc_canview"      >1</bitfield>
+				<bitfield name="canbet"        group="phpkd_vbabc" phrase="phpkd_vbabc_canbet"       >2</bitfield>
+				<bitfield name="cansettle"     group="phpkd_vbabc" phrase="phpkd_vbabc_cansettle"    >4</bitfield>
+				<bitfield name="canprivatebet" group="phpkd_vbabc" phrase="phpkd_vbabc_canprivatebet">8</bitfield>
+				<bitfield name="canadd"        group="phpkd_vbabc" phrase="phpkd_vbabc_canadd"       >16</bitfield>
+				<bitfield name="canedit"       group="phpkd_vbabc" phrase="phpkd_vbabc_canedit"      >32</bitfield>
+				<bitfield name="canspecify"    group="phpkd_vbabc" phrase="phpkd_vbabc_canspecify"   >64</bitfield>
+				<bitfield name="canmoderate"   group="phpkd_vbabc" phrase="phpkd_vbabc_canmoderate"  >128</bitfield>
+			</group>
+		</group>
+		<group name="misc">
+			<group name="phpkd_vbabc">
+				<bitfield name="active"  >1</bitfield>
+				<bitfield name="oneonone">2</bitfield>
+			</group>
+			<group name="phpkd_vbabc_postbit">
+				<bitfield name="phpkd_vbabc_current">1</bitfield>
+				<bitfield name="phpkd_vbabc_total"  >2</bitfield>
+				<bitfield name="phpkd_vbabc_won"    >4</bitfield>
+				<bitfield name="phpkd_vbabc_lost"   >8</bitfield>
+				<bitfield name="phpkd_vbabc_points" >16</bitfield>
+			</group>
+			<group name="phpkd_vbabc_signature">
+				<bitfield name="phpkd_vbabc_current">1</bitfield>
+				<bitfield name="phpkd_vbabc_total"  >2</bitfield>
+				<bitfield name="phpkd_vbabc_won"    >4</bitfield>
+				<bitfield name="phpkd_vbabc_lost"   >8</bitfield>
+				<bitfield name="phpkd_vbabc_points" >16</bitfield>
+			</group>
+			<group name="phpkd_vbabc_profile">
+				<bitfield name="phpkd_vbabc_current">1</bitfield>
+				<bitfield name="phpkd_vbabc_total"  >2</bitfield>
+				<bitfield name="phpkd_vbabc_won"    >4</bitfield>
+				<bitfield name="phpkd_vbabc_lost"   >8</bitfield>
+				<bitfield name="phpkd_vbabc_points" >16</bitfield>
+			</group>
+		</group>
+	</bitfielddefs>
+</bitfields>
+
+<!-- CVS: $RCSfile$ - $Revision: 40682 $ -->
