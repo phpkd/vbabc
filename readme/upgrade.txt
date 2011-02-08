@@ -54,4 +54,4 @@ PHPKD - vB Automated Bookie Center 'Ultimate' -- Upgrade Procedure:
 Brought to you by PHP KingDom (www.phpkd.net)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-$Version: 4.1.100 $ - $Id: upgrade.txt 210 2011-01-10 10:41:26Z PHPKD $
+$Version: 4.1.100 $ - $Id$

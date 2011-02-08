@@ -2,7 +2,7 @@
 /*==================================================================================*\
 || ################################################################################ ||
 || # Product Name: vB Automated Bookie Center 'Ultimate'         Version: 4.1.100 # ||
-|| # License Type: Commercial License                            $Revision: 210 $ # ||
+|| # License Type: Commercial License                            $Revision$ # ||
 || # ---------------------------------------------------------------------------- # ||
 || # 																			  # ||
 || #            Copyright ©2005-2010 PHP KingDom. All Rights Reserved.            # ||
@@ -87,10 +87,10 @@ class PHPKD_VBABC_Install
 		// Import debug data in appropriate field
 		$phpkdinfo['title'] = $info['title'];
 		$phpkdinfo['version'] = $info['version'];
-		$phpkdinfo['revision'] = trim(substr(substr('$Revision: 210 $', 10), 0, -1));
-		$phpkdinfo['released'] = trim(substr(substr('$Date: 2011-01-10 12:41:26 +0200 (Mon, 10 Jan 2011) $', 6), 0, -1));
+		$phpkdinfo['revision'] = trim(substr(substr('$Revision$', 10), 0, -1));
+		$phpkdinfo['released'] = trim(substr(substr('$Date$', 6), 0, -1));
 		$phpkdinfo['installdateline'] = TIMENOW;
-		$phpkdinfo['author'] = trim(substr(substr('$Author: PHPKD $', 8), 0, -1));
+		$phpkdinfo['author'] = trim(substr(substr('$Author$', 8), 0, -1));
 		$phpkdinfo['vendor'] = trim(substr(substr('$Vendor: PHP KingDom $', 8), 0, -1));
 		$phpkdinfo['url'] = $info['url'];
 		$phpkdinfo['versioncheckurl'] = $info['versioncheckurl'];
@@ -389,7 +389,7 @@ class PHPKD_VBABC_Install
 /*============================================================================*\
 || ########################################################################### ||
 || # Version: 4.1.100
-|| # $Revision: 210 $
-|| # Released: $Date: 2011-01-10 12:41:26 +0200 (Mon, 10 Jan 2011) $
+|| # $Revision$
+|| # Released: $Date$
 || ########################################################################### ||
 \*============================================================================*/

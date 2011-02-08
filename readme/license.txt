@@ -73,4 +73,4 @@ You acknowledge that, in providing you with the Software and/or Services, PHP Ki
 Brought to you by PHP KingDom (www.phpkd.net)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-$Version: 4.1.100 $ - $Id: license.txt 210 2011-01-10 10:41:26Z PHPKD $
+$Version: 4.1.100 $ - $Id$
