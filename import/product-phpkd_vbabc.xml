@@ -815,7 +815,7 @@ You've multiple options to choose from:<br />
 	<li><strong>Include Specific Users</strong></li>
 	<li><strong>Exclude Specific Users</strong></li>
 </ul>
-Select "Include All Users" to check all users' posts, or select "Include Specific Users" to check only those specific users' posts -defined in the following setting-, or select "Exclude Specific Users" to check all users' posts <strong>except</strong> those specific users' posts -defined in the following setting-.]]></phrase>
+Select "Include All Users" to allow all users to be able to use this product's features, or select "Include Specific Users" to allow only those specific users -defined in the following setting-, or select "Exclude Specific Users" to allow all users <strong>except</strong> those specific users -defined in the following setting-.]]></phrase>
 			<phrase name="setting_phpkd_vbabc_inex_users_ids_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[If you've chosen "Include Specific Users" OR "Exclude Specific Users" from the above setting, then you've to enter those specified user IDs here in this setting's field. Separate user IDs by normal English comma.]]></phrase>
 			<phrase name="setting_phpkd_vbabc_inex_users_ids_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Included/Excluded Users]]></phrase>
 			<phrase name="setting_phpkd_vbabc_inex_users_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Include/Exclude Users]]></phrase>
