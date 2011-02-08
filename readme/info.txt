@@ -234,7 +234,7 @@ Technical Notes:
      * New Templates: 8
      * Manual Template changes: 0
      * Auto Template changes: 2
-     * New Files: 9
+     * New Files: 14
      * Manual File Changes: 0
      * New vBulletin Settings: 16
      * New Usergroup Permissions: 8
