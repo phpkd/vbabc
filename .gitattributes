@@ -15,6 +15,7 @@ screenshots/phpkd_vbabc_confirm_abandon.png -text
 screenshots/phpkd_vbabc_confirm_delete.png -text
 screenshots/phpkd_vbabc_confirm_openclose.png -text
 screenshots/phpkd_vbabc_editevent.png -text
+screenshots/phpkd_vbabc_event_abandoned.png -text
 screenshots/phpkd_vbabc_event_closed.png -text
 screenshots/phpkd_vbabc_event_open.png -text
 screenshots/phpkd_vbabc_event_settled.png -text
