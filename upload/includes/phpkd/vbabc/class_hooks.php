@@ -5,7 +5,7 @@
 || # License Type: Creative Commons - Attribution-Noncommercial-Share Alike 3.0   # ||
 || # ---------------------------------------------------------------------------- # ||
 || # 																			  # ||
-|| #            Copyright ©2005-2013 PHP KingDom. All Rights Reserved.            # ||
+|| #           Copyright ©2005-2013 PHP KingDom. Some Rights Reserved.            # ||
 || #       This product may be redistributed in whole or significant part.        # ||
 || # 																			  # ||
 || # -------- "vB Automated Bookie Center 'Ultimate'" IS A FREE SOFTWARE -------- # ||
@@ -28,8 +28,8 @@ if (!defined('VB_AREA') OR !defined('PHPKD_VBABC') OR @get_class($this) != 'PHPK
  * @category	vB Automated Bookie Center 'Ultimate'
  * @package		PHPKD_VBABC
  * @subpackage	PHPKD_VBABC_Hooks
- * @copyright	Copyright ©2005-2013 PHP KingDom. All Rights Reserved. (http://www.phpkd.net)
- * @license		http://info.phpkd.net/en/license/commercial
+ * @copyright	Copyright ©2005-2013 PHP KingDom. Some Rights Reserved. (http://www.phpkd.net)
+ * @license		http://creativecommons.org/licenses/by-nc-sa/3.0/
  */
 class PHPKD_VBABC_Hooks
 {
@@ -408,44 +408,27 @@ class PHPKD_VBABC_Hooks
 	 */
 	public function global_complete($params)
 	{
-		if (file_exists(DIR . '/includes/phpkd/vbabc/class_copyright.php'))
-		{
-			if (!class_exists('PHPKD_VBABC_Copyright'))
-			{
-				require_once(DIR . '/includes/phpkd/vbabc/class_copyright.php');
-			}
-
-			$copyright = new PHPKD_VBABC_Copyright($this->_registry);
-			$bburl     = @parse_url($this->_registry->_vbulletin->options['bburl']);
-			$token     = md5(md5(md5(PHPKD_VBABC_TOCKEN) . md5($this->_registry->_vbulletin->userinfo['securitytoken']) . md5(TIMENOW)));
-
-			if ($copyright->getToken() == $token AND $copyright->copyrightToken() == md5($bburl['host'] . $token))
-			{
-				return;
-			}
-		}
-
 		// Parameters required!
 		if ($this->_registry->verify_hook_params($params))
 		{
 			@extract($params);
-			$output = preg_replace('#All rights reserved.#i', 'All rights reserved.<div style="text-align: center">Bookie Center by <a href="http://go.phpkd.net/en/product/vbabc/" target="_blank" rel="nofollow">PHPKD - vB Automated Bookie Center</a>.</div>', $output, 1, $count);
+			$output = preg_replace('#All rights reserved.#i', 'All rights reserved.<div style="text-align: center">Bookie Center by <a href="http://www.vbulletin.org/forum/misc.php?do=producthelp&pid=phpkd_vbabc" target="_blank" rel="nofollow">PHPKD - vB Automated Bookie Center</a>.</div>', $output, 1, $count);
 
 			if (empty($count))
 			{
-				$output = preg_replace('#<div id="footer_copyright"#i', '<div style="text-align: center" class="shade footer_copyright">Bookie Center by <a href="http://go.phpkd.net/en/product/vbabc/" target="_blank" rel="nofollow">PHPKD - vB Automated Bookie Center</a>.</div><div id="footer_copyright"', $output, 1, $count);
+				$output = preg_replace('#<div id="footer_copyright"#i', '<div style="text-align: center" class="shade footer_copyright">Bookie Center by <a href="http://www.vbulletin.org/forum/misc.php?do=producthelp&pid=phpkd_vbabc" target="_blank" rel="nofollow">PHPKD - vB Automated Bookie Center</a>.</div><div id="footer_copyright"', $output, 1, $count);
 
 				if (empty($count))
 				{
-					$output = preg_replace('#<div class="below_body">#i', '<div style="text-align: center" class="shade footer_copyright">Bookie Center by <a href="http://go.phpkd.net/en/product/vbabc/" target="_blank" rel="nofollow">PHPKD - vB Automated Bookie Center</a>.</div><div class="below_body">', $output, 1, $count);
+					$output = preg_replace('#<div class="below_body">#i', '<div style="text-align: center" class="shade footer_copyright">Bookie Center by <a href="http://www.vbulletin.org/forum/misc.php?do=producthelp&pid=phpkd_vbabc" target="_blank" rel="nofollow">PHPKD - vB Automated Bookie Center</a>.</div><div class="below_body">', $output, 1, $count);
 
 					if (empty($count))
 					{
-						$output = preg_replace('#Powered by vBulletin&trade;#i', '<div style="text-align: center" class="shade footer_copyright">Bookie Center by <a href="http://go.phpkd.net/en/product/vbabc/" target="_blank" rel="nofollow">PHPKD - vB Automated Bookie Center</a>.</div>Powered by vBulletin&trade;', $output, 1, $count);
+						$output = preg_replace('#Powered by vBulletin&trade;#i', '<div style="text-align: center" class="shade footer_copyright">Bookie Center by <a href="http://www.vbulletin.org/forum/misc.php?do=producthelp&pid=phpkd_vbabc" target="_blank" rel="nofollow">PHPKD - vB Automated Bookie Center</a>.</div>Powered by vBulletin&trade;', $output, 1, $count);
 
 						if (empty($count))
 						{
-							$output = preg_replace('#</body>#i', '<div style="text-align: center" class="shade footer_copyright">Bookie Center by <a href="http://go.phpkd.net/en/product/vbabc/" target="_blank" rel="nofollow">PHPKD - vB Automated Bookie Center</a>.</div></body>', $output, 1, $count);
+							$output = preg_replace('#</body>#i', '<div style="text-align: center" class="shade footer_copyright">Bookie Center by <a href="http://www.vbulletin.org/forum/misc.php?do=producthelp&pid=phpkd_vbabc" target="_blank" rel="nofollow">PHPKD - vB Automated Bookie Center</a>.</div></body>', $output, 1, $count);
 						}
 					}
 				}

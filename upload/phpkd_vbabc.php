@@ -5,7 +5,7 @@
 || # License Type: Creative Commons - Attribution-Noncommercial-Share Alike 3.0   # ||
 || # ---------------------------------------------------------------------------- # ||
 || # 																			  # ||
-|| #            Copyright ©2005-2013 PHP KingDom. All Rights Reserved.            # ||
+|| #           Copyright ©2005-2013 PHP KingDom. Some Rights Reserved.            # ||
 || #       This product may be redistributed in whole or significant part.        # ||
 || # 																			  # ||
 || # -------- "vB Automated Bookie Center 'Ultimate'" IS A FREE SOFTWARE -------- # ||

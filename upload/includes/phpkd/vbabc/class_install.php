@@ -5,7 +5,7 @@
 || # License Type: Creative Commons - Attribution-Noncommercial-Share Alike 3.0   # ||
 || # ---------------------------------------------------------------------------- # ||
 || # 																			  # ||
-|| #            Copyright ©2005-2013 PHP KingDom. All Rights Reserved.            # ||
+|| #           Copyright ©2005-2013 PHP KingDom. Some Rights Reserved.            # ||
 || #       This product may be redistributed in whole or significant part.        # ||
 || # 																			  # ||
 || # -------- "vB Automated Bookie Center 'Ultimate'" IS A FREE SOFTWARE -------- # ||
@@ -27,8 +27,8 @@ if (!defined('VB_AREA') OR !defined('IN_CONTROL_PANEL'))
  * @category	vB Automated Bookie Center 'Ultimate'
  * @package		PHPKD_VBABC
  * @subpackage	PHPKD_VBABC_Install
- * @copyright	Copyright ©2005-2013 PHP KingDom. All Rights Reserved. (http://www.phpkd.net)
- * @license		http://info.phpkd.net/en/license/commercial
+ * @copyright	Copyright ©2005-2013 PHP KingDom. Some Rights Reserved. (http://www.phpkd.net)
+ * @license		http://creativecommons.org/licenses/by-nc-sa/3.0/
  */
 class PHPKD_VBABC_Install
 {
