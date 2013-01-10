@@ -3,11 +3,11 @@
 <product productid="phpkd_vbabc" active="1">
 	<title><![CDATA[PHPKD - vB Automated Bookie Center 'Ultimate']]></title>
 	<description><![CDATA[This product is a 'bookmakers' or betting system that allows authorized users to post events & outcomes and then bet each others on it. Each outcome has it's own set of odds which can be modified through the life of an event, winning users awarded.]]></description>
-	<version>4.1.100</version>
-	<url>http://tools.phpkd.net/en/producthelp/url/vbabc/</url>
-	<versioncheckurl>http://tools.phpkd.net/en/producthelp/version/vbabc/</versioncheckurl>
+	<version>4.2.100</version>
+	<url><![CDATA[http://www.vbulletin.org/forum/misc.php?do=producthelp&pid=phpkd_vbabc]]></url>
+	<versioncheckurl><![CDATA[http://www.vbulletin.org/forum/misc.php?do=productcheck&pid=phpkd_vbabc]]></versioncheckurl>
 	<dependencies>
-		<dependency dependencytype="vbulletin" minversion="4.0.0" maxversion="4.1.99" />
+		<dependency dependencytype="vbulletin" minversion="4.0.0" maxversion="4.2.99" />
 	</dependencies>
 	<codes>
 		<code version="*">
@@ -92,7 +92,7 @@ $phpkd_vbabc->uninstall_init();]]></uninstallcode>
 #eventinfo .blockhead, #eventinfo .eventsubhead, #eventinfo .blockrow, #eventinfo .blockfoot {
 	background:transparent;
 	border: 0;
-	padding: {vb:math {vb:stylevar padding}/2} 0 0; 
+	padding: {vb:math {vb:stylevar padding}/2} 0 0;
 	clear:both;
 }
 
@@ -174,7 +174,7 @@ $phpkd_vbabc->uninstall_init();]]></uninstallcode>
 #eventoptions li {
 	width: 100%;
 	position: relative;
-        min-height: {vb:math {vb:stylevar pollbars_margin_size}*4}; 
+        min-height: {vb:math {vb:stylevar pollbars_margin_size}*4};
 	float: {vb:stylevar left};
 }
 
@@ -204,7 +204,7 @@ $phpkd_vbabc->uninstall_init();]]></uninstallcode>
 }
 
 #eventoptions li .bets .eventbarwrapper div {
-	float:{vb:stylevar left};	
+	float:{vb:stylevar left};
 }
 
 #eventoptions li .bets .eventcolumn {
@@ -484,7 +484,7 @@ function phpkd_vbabc_confirm(msg, lnk)
 	<dl class="group dep_group">
 		<dt>
 			<label for="phpkd_vbabc">{vb:rawphrase phpkd_vbabc_create} <vb:if condition="$vboptions['phpkd_vbabc_maxopts']"> ({vb:rawphrase maximum} {vb:raw vboptions.phpkd_vbabc_maxopts})</vb:if>:</label>
-			<input type="checkbox" name="phpkd_vbabc" value="yes" id="phpkd_vbabc" tabindex="1" {vb:raw checked.phpkd_vbabc} class="dep_ctrl" /> 
+			<input type="checkbox" name="phpkd_vbabc" value="yes" id="phpkd_vbabc" tabindex="1" {vb:raw checked.phpkd_vbabc} class="dep_ctrl" />
 		</dt>
 		<dd id="phpkd_vbabc_deps" class="rightcol">
 			<input type="text" class="textbox numeric" size="5" name="phpkd_vbabc_opts" value="{vb:raw phpkd_vbabc_opts}" tabindex="1" />
@@ -688,10 +688,6 @@ $phpkd_vbabc->fetch_hook('threaddata_start', array('there' => $this));]]></phpco
 			<phrase name="phpkd_vbabc_eventnotclosed" date="1295823437" username="PHPKD" version="4.1.100"><![CDATA[The bookie event you selected is not closed, it should be closed in order to be able to settle it. Please press back to return to it.]]></phrase>
 			<phrase name="phpkd_vbabc_eventnotopen" date="1295823419" username="PHPKD" version="4.1.100"><![CDATA[The bookie event you selected is not open, it should be open in order to be able to bet on it. Please press back to return to it.]]></phrase>
 			<phrase name="phpkd_vbabc_initialization_failed_file" date="1296578669" username="PHPKD" version="4.1.100"><![CDATA[Sorry, required initialization for "PHPKD - vB Automated Bookie Center" failed. Please make sure that the following file already uploaded and is readable "./includes/phpkd/vbabc/{1}".]]></phrase>
-			<phrase name="phpkd_vbabc_invalid_license" date="1296792257" username="PHPKD" version="4.1.100"><![CDATA[Sorry, this isn't a valid license. Please contact support at <a href="http://www.phpkd.net" target="_blank">www.phpkd.net</a> for a valid license!!]]></phrase>
-			<phrase name="phpkd_vbabc_invalid_license_key" date="1296792129" username="PHPKD" version="4.1.100"><![CDATA[Sorry, license key is <span style="color: #FF0000">NOT</span> valid, please enter a correct license key or contact support at <a href="http://www.phpkd.net" target="_blank">www.phpkd.net</a> for a valid license!!]]></phrase>
-			<phrase name="phpkd_vbabc_invalid_license_trail" date="1296793290" username="PHPKD" version="4.1.100"><![CDATA[Sorry, license key is <span style="color: #FF0000">NOT</span> valid, please get your correct license key from <a href="http://eshop.phpkd.net/customers/index.php" target="_blank">Customer Area</a> or contact support at <a href="http://www.phpkd.net" target="_blank">www.phpkd.net</a> for assistance!! Note that a valid license key for this product <span style="color: #FF0000">SHOULD</span> begin with 'TRAIL'.]]></phrase>
-			<phrase name="phpkd_vbabc_invalid_license_vbabc" date="1296793246" username="PHPKD" version="4.1.100"><![CDATA[Sorry, license key is <span style="color: #FF0000">NOT</span> valid, please get your correct license key from <a href="http://eshop.phpkd.net/customers/index.php" target="_blank">Customer Area</a> or contact support at <a href="http://www.phpkd.net" target="_blank">www.phpkd.net</a> for assistance!! Note that a valid license key for this product <span style="color: #FF0000">SHOULD</span> begin with 'VBABC'.]]></phrase>
 			<phrase name="phpkd_vbabc_invalidbet" date="1295826625" username="PHPKD" version="4.1.100"><![CDATA[Invalid bet! You either did not select an option to bet for, or entered an invalid value for your bet. Please press back to return to the bookie and try again.]]></phrase>
 			<phrase name="phpkd_vbabc_invalidsettle" date="1295827187" username="PHPKD" version="4.1.100"><![CDATA[Invalid settle! You have to choose either a winning option(s), or select the -no winners- option. Please press back to return to the bookie and try again.]]></phrase>
 			<phrase name="phpkd_vbabc_maximumbetters" date="1295519980" username="PHPKD" version="4.1.100"><![CDATA[Sorry, this bookie event reached it's maximum allowed betters. No more betting allowed. Please press back to return to it.]]></phrase>
@@ -819,8 +815,6 @@ Select "Include All Users" to allow all users to be able to use this product's f
 			<phrase name="setting_phpkd_vbabc_inex_users_ids_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[If you've chosen "Include Specific Users" OR "Exclude Specific Users" from the above setting, then you've to enter those specified user IDs here in this setting's field. Separate user IDs by normal English comma.]]></phrase>
 			<phrase name="setting_phpkd_vbabc_inex_users_ids_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Included/Excluded Users]]></phrase>
 			<phrase name="setting_phpkd_vbabc_inex_users_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Include/Exclude Users]]></phrase>
-			<phrase name="setting_phpkd_vbabc_licensekey_desc" date="1296578903" username="PHPKD" version="4.1.100"><![CDATA[Enter license key you've received, you can always obtain a copy of it from your customer area at <a href="http://www.phpkd.net" target="_blank">www.phpkd.net</a>. Note that "License Key" is sensitive, so make sure to copy & past it exactly.]]></phrase>
-			<phrase name="setting_phpkd_vbabc_licensekey_title" date="1296578903" username="PHPKD" version="4.1.100"><![CDATA[License Key]]></phrase>
 			<phrase name="setting_phpkd_vbabc_maxopts_desc" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Maximum number of options a user can set for the bookie event.<br />
 Set this option to 0 to allow any number of options.]]></phrase>
 			<phrase name="setting_phpkd_vbabc_maxopts_title" date="1296578810" username="PHPKD" version="4.1.100"><![CDATA[Maximum Bookie Event Options]]></phrase>
@@ -850,10 +844,6 @@ Note that this option can cause confusion. The last post time of a thread will b
 				<datatype>boolean</datatype>
 				<optioncode>yesno</optioncode>
 				<defaultvalue>0</defaultvalue>
-			</setting>
-			<setting varname="phpkd_vbabc_licensekey" displayorder="15">
-				<datatype>free</datatype>
-				<blacklist>1</blacklist>
 			</setting>
 			<setting varname="phpkd_vbabc_inex_users" displayorder="20">
 				<datatype>integer</datatype>

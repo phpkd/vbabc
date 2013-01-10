@@ -2,14 +2,14 @@
 /*==================================================================================*\
 || ################################################################################ ||
 || # Product Name: vB Automated Bookie Center 'Ultimate'         Version: 4.1.100 # ||
-|| # License Type: Commercial License                            $Revision$ # ||
+|| # License Type: Creative Commons - Attribution-Noncommercial-Share Alike 3.0   # ||
 || # ---------------------------------------------------------------------------- # ||
 || # 																			  # ||
-|| #            Copyright ©2005-2010 PHP KingDom. All Rights Reserved.            # ||
-|| #      This product may not be redistributed in whole or significant part.     # ||
+|| #            Copyright ©2005-2013 PHP KingDom. All Rights Reserved.            # ||
+|| #       This product may be redistributed in whole or significant part.        # ||
 || # 																			  # ||
-|| # ------- "vB Automated Bookie Center 'Ultimate'" IS NOT FREE SOFTWARE ------- # ||
-|| #     http://www.phpkd.net | http://info.phpkd.net/en/license/commercial       # ||
+|| # -------- "vB Automated Bookie Center 'Ultimate'" IS A FREE SOFTWARE -------- # ||
+|| #   http://www.phpkd.net | http://creativecommons.org/licenses/by-nc-sa/3.0/   # ||
 || ################################################################################ ||
 \*==================================================================================*/
 
@@ -21,7 +21,6 @@ $md5_sums = array(
 	'/includes/phpkd/vbabc' => array(
 		'class_core.php'           => 'c405fc5b641d6537e28d2178f22d0286',
 		'class_dm.php'             => '1094071a63faaaec5b47b64f25f28817',
-		'class_dml.php'            => '8d2a07da0aaef1d4529d3ae5c5845b73',
 		'class_hooks.php'          => '39d6cb7d2f026c284927e80e1f960882',
 		'class_install.php'        => '6eef0d46ef0ba69bf808dff82cc90163',
 	),
@@ -34,12 +33,4 @@ $md5_sums = array(
 $md5_sum_softwareid = 'phpkd_vbabc';
 $md5_sum_versions['phpkd_vbabc'] = '4.1.100';
 
-
-/*============================================================================*\
-|| ########################################################################### ||
-|| # Version: 4.1.100
-|| # $Revision$
-|| # Released: $Date$
-|| ########################################################################### ||
-\*============================================================================*/
 ?>

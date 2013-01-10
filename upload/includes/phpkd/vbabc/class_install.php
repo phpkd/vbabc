@@ -2,14 +2,14 @@
 /*==================================================================================*\
 || ################################################################################ ||
 || # Product Name: vB Automated Bookie Center 'Ultimate'         Version: 4.1.100 # ||
-|| # License Type: Commercial License                            $Revision$ # ||
+|| # License Type: Creative Commons - Attribution-Noncommercial-Share Alike 3.0   # ||
 || # ---------------------------------------------------------------------------- # ||
 || # 																			  # ||
-|| #            Copyright ©2005-2010 PHP KingDom. All Rights Reserved.            # ||
-|| #      This product may not be redistributed in whole or significant part.     # ||
+|| #            Copyright ©2005-2013 PHP KingDom. All Rights Reserved.            # ||
+|| #       This product may be redistributed in whole or significant part.        # ||
 || # 																			  # ||
-|| # ------- "vB Automated Bookie Center 'Ultimate'" IS NOT FREE SOFTWARE ------- # ||
-|| #     http://www.phpkd.net | http://info.phpkd.net/en/license/commercial       # ||
+|| # -------- "vB Automated Bookie Center 'Ultimate'" IS A FREE SOFTWARE -------- # ||
+|| #   http://www.phpkd.net | http://creativecommons.org/licenses/by-nc-sa/3.0/   # ||
 || ################################################################################ ||
 \*==================================================================================*/
 
@@ -72,7 +72,7 @@ class PHPKD_VBABC_Install
 	 */
 	public function install_init($info)
 	{
-		if (!file_exists(DIR . '/includes/phpkd/vbabc/class_core.php') OR !file_exists(DIR . '/includes/phpkd/vbabc/class_dm.php') OR !file_exists(DIR . '/includes/phpkd/vbabc/class_dml.php') OR !file_exists(DIR . '/includes/phpkd/vbabc/class_hooks.php') OR !file_exists(DIR . '/includes/xml/bitfield_phpkd_vbabc.xml') OR !file_exists(DIR . '/includes/xml/cpnav_phpkd_vbabc.xml'))
+		if (!file_exists(DIR . '/includes/phpkd/vbabc/class_core.php') OR !file_exists(DIR . '/includes/phpkd/vbabc/class_dm.php') OR !file_exists(DIR . '/includes/phpkd/vbabc/class_hooks.php') OR !file_exists(DIR . '/includes/xml/bitfield_phpkd_vbabc.xml') OR !file_exists(DIR . '/includes/xml/cpnav_phpkd_vbabc.xml'))
 		{
 			print_dots_stop();
 			print_cp_message('Please upload the files that came with "PHPKD - vB Automated Bookie Center" product before installing or upgrading!');
@@ -384,12 +384,3 @@ class PHPKD_VBABC_Install
 		$this->_vbulletin->db->show_errors();
 	}
 }
-
-
-/*============================================================================*\
-|| ########################################################################### ||
-|| # Version: 4.1.100
-|| # $Revision$
-|| # Released: $Date$
-|| ########################################################################### ||
-\*============================================================================*/

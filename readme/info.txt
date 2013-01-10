@@ -10,7 +10,7 @@ Name:
 
 Version:
 ~~~~~~~~~
-     * 4.1.100
+     * 4.2.100
 
 
 Description:
@@ -20,23 +20,12 @@ Description:
 
 Compatible With:
 ~~~~~~~~~~~~~~~~~~~~~~~~~
-     * All 4.0.x/4.1.x vBulletin versions.
+     * All 4.0.x/4.1.x/4.2.x vBulletin versions.
 
 
 Requirements:
 ~~~~~~~~~~~~~~
-     * vBulletin version 4.0.x/4.1.x
-
-
-License:
-~~~~~~~~~
-     * http://info.phpkd.net/en/license/commercial/
-
-
-Helpful links:
-~~~~~~~~~~~~~~
-     * Bug Reports: http://forum.phpkd.net/project.php?do=issuelist&projectid=2&issuetypeid=bug
-     * Feature Requests: http://forum.phpkd.net/project.php?do=issuelist&projectid=2&issuetypeid=feature
+     * vBulletin version 4.0.x/4.1.x/4.2.x
 
 
 Features:
@@ -123,11 +112,6 @@ Features:
 	          - The text that is presented when the "PHPKD - vB Automated Bookie Center" is closed.
 
 
-Translations:
-~~~~~~~~~~~~~~~~~
-     .. Submit new translation & get free 'Ultimate' edition!
-
-
 Installation Procedure:
 ~~~~~~~~~~~~~~~~~~~~~~~~
      1. Upload required files to their appropriate places:
@@ -137,7 +121,6 @@ Installation Procedure:
 	          + vbabc
 		- class_core.php
 		- class_dm.php
-		- class_dml.php
 		- class_hooks.php
 		- class_install.php
 	     - md5_sums_phpkd_vbabc.php
@@ -157,13 +140,9 @@ Installation Procedure:
 
      2. Import the product's XML file "product-phpkd_vbabc.xml" from AdminCP.
 
-     3. Get you license key & enter it in your product's settings:
-	Get from: Customer Area » My Packages » vB Automated Bookie Center 'Ultimate' » Licenses » License Key
-	Enter Here: AdminCP » vB Automated Bookie Center » Settings » License Key
+     3. Activate & Configure product's settings as preferred.
 
-     4. Activate & Configure product's settings as preferred.
-
-     5. [OPTIONAL] Translations: vBulletin AdminCP » Languages & Phrases » Download / Upload Languages » Import Language XML File (Make sure that your forum's Character Set is equivalent to the imported language as follow):
+     4. [OPTIONAL] Translations: vBulletin AdminCP » Languages & Phrases » Download / Upload Languages » Import Language XML File (Make sure that your forum's Character Set is equivalent to the imported language as follow):
 	     Arabic » ISO-8859-6
 	     English, French, Spanish » ISO-8859-1
 	     Greek » ISO-8859-7
@@ -172,7 +151,7 @@ Installation Procedure:
 	     Turkish » ISO-8859-9
 	     You can change language file's encoding before import to whatever encoding you wish/your forum works on (ex: UTF-8) using the wonderful application "Encoding Master" (http://www.elfdata.com/encodingmaster/).
 
-     6. You're Done :).
+     5. You're Done :).
 
 
 Upgrade Procedure:
@@ -197,7 +176,7 @@ Controls:
 
 License:
 ~~~~~~~~~
-     * http://info.phpkd.net/en/license/commercial/
+     * http://creativecommons.org/licenses/by-nc-sa/3.0/
 
 
 Help with:
@@ -207,24 +186,10 @@ Help with:
      * Translations to benefit more users (Translate the product & win a free 'Ultimate' edition - http://forum.phpkd.net/showthread.php?t=21).
 
 
-Known Issues:
-~~~~~~~~~~~~~
-     * None!
-
-
-Future TO-DO-LIST:
-~~~~~~~~~~~~~~~~~~~
-     * Post your suggestions!
-
-
 History:
 ~~~~~~~~~
      * v4.1.100 08/02/2010 10:10 AM UTC: First initial public release.
-
-
-Screen Shots:
-~~~~~~~~~~~~~~
-     * Available at: http://product.phpkd.net/en/commercial/vbabc/
+     * v4.2.100 10/01/2013 10:10 AM UTC: Going Opensource!
 
 
 Technical Notes:
@@ -252,26 +217,6 @@ Technical Notes:
      * Installation Time: ~20 seconds
 
 
-Reference Links:
-~~~~~~~~~~~~~~~~~
-     * PHPKD.NET: http://go.phpkd.net/en/product/vbabc/
-
-
-Recent Products:
-~~~~~~~~~~~~~~~~~
-
-     * vB Link Verifier Bot
-	http://go.phpkd.net/en/product/vblvb/
-
-     * Advanced Quick Reply [ Attachments - Smilie box / menu - Thread Management - AJAX ]
-	http://go.phpkd.net/en/product/vbaqr/
-
-     * Advanced Quick Edit [ All Built-In BBCodes ]
-	http://go.phpkd.net/en/product/vbaqe/
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Brought to you by PHP KingDom (www.phpkd.net)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-$Version: 4.1.100 $ - $Id$

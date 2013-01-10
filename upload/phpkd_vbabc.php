@@ -2,14 +2,14 @@
 /*==================================================================================*\
 || ################################################################################ ||
 || # Product Name: vB Automated Bookie Center 'Ultimate'         Version: 4.1.100 # ||
-|| # License Type: Commercial License                            $Revision$ # ||
+|| # License Type: Creative Commons - Attribution-Noncommercial-Share Alike 3.0   # ||
 || # ---------------------------------------------------------------------------- # ||
 || # 																			  # ||
-|| #            Copyright ©2005-2010 PHP KingDom. All Rights Reserved.            # ||
-|| #      This product may not be redistributed in whole or significant part.     # ||
+|| #            Copyright ©2005-2013 PHP KingDom. All Rights Reserved.            # ||
+|| #       This product may be redistributed in whole or significant part.        # ||
 || # 																			  # ||
-|| # ------- "vB Automated Bookie Center 'Ultimate'" IS NOT FREE SOFTWARE ------- # ||
-|| #     http://www.phpkd.net | http://info.phpkd.net/en/license/commercial       # ||
+|| # -------- "vB Automated Bookie Center 'Ultimate'" IS A FREE SOFTWARE -------- # ||
+|| #   http://www.phpkd.net | http://creativecommons.org/licenses/by-nc-sa/3.0/   # ||
 || ################################################################################ ||
 \*==================================================================================*/
 
@@ -83,11 +83,7 @@ if ($vbulletin->GPC['eventid'])
 // Re-Execute the following hook: 'global_state_check' after supplying: $vbulletin->GPC['forumid']
 $vbulletin->GPC['forumid'] = $foruminfo['forumid'];
 extract($phpkd_vbabc->fetch_hook('global_state_check', array('show' => $show)));
-if ($show['phpkd_vbabc_active'])
-{
-	$phpkd_vbabc->verify_license();
-}
-else
+if (!$show['phpkd_vbabc_active'])
 {
 	eval(standard_error($vbulletin->options['phpkd_vbabc_closedreason']));
 }
@@ -1026,11 +1022,4 @@ if ($_REQUEST['do'] == 'eventopenclose')
 	eval(print_standard_redirect('redirect_phpkd_vbabc_eventopenclose'));
 }
 
-/*============================================================================*\
-|| ########################################################################### ||
-|| # Version: 4.1.100
-|| # $Revision$
-|| # Released: $Date$
-|| ########################################################################### ||
-\*============================================================================*/
 ?>
