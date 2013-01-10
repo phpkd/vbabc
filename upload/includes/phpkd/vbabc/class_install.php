@@ -93,15 +93,15 @@ class PHPKD_VBABC_Install
 		$phpkdinfo['url'] = $info['url'];
 		$phpkdinfo['versioncheckurl'] = $info['versioncheckurl'];
 
-		if ($this->_vbulletin->options['phpkd_free42_data'])
+		if ($this->_vbulletin->options['phpkd_free4x_data'])
 		{
-			$holder = unserialize($this->_vbulletin->options['phpkd_free42_data']);
+			$holder = unserialize($this->_vbulletin->options['phpkd_free4x_data']);
 			$holder[$phpkdinfo['productid']] = $phpkdinfo;
 			$data = $this->_vbulletin->db->escape_string(serialize($holder));
 			$this->_vbulletin->db->query_write("
 				UPDATE " . TABLE_PREFIX . "setting
 				SET value = '$data'
-				WHERE varname = 'phpkd_free42_data'
+				WHERE varname = 'phpkd_free4x_data'
 			");
 		}
 		else
@@ -113,15 +113,15 @@ class PHPKD_VBABC_Install
 				REPLACE INTO " . TABLE_PREFIX . "setting
 					(varname, grouptitle, value, defaultvalue, datatype, optioncode, displayorder, advanced, volatile, validationcode, blacklist, product)
 				VALUES
-					('phpkd_free42_data', 'version', '$data', '', 'free', '', '42100', '0', '1', '', '0', 'phpkd_framework')
+					('phpkd_free4x_data', 'version', '$data', '', 'free', '', '42100', '0', '1', '', '0', 'phpkd_framework')
 			");
 
 			$this->_vbulletin->db->query_write("
 				REPLACE INTO " . TABLE_PREFIX . "phrase
 					(languageid, fieldname, varname, text, product, username, dateline, version)
 				VALUES
-					('-1', 'vbsettings', 'setting_phpkd_free42_data_title', 'PHP KingDom (PHPKD) Free Products\' Data (4.2.x) [Sensitive]', 'phpkd_framework', '" . $this->_vbulletin->db->escape_string($this->_vbulletin->userinfo['username']) . "', " . TIMENOW . ", '4.2.100'),
-					('-1', 'vbsettings', 'setting_phpkd_free42_data_desc', 'PHP KingDom (PHPKD) Free Products\' Data used for debugging purposes. <strong>[Sensitive Data, DON\'T ALTER]</strong>.', 'phpkd_framework', '" . $this->_vbulletin->db->escape_string($this->_vbulletin->userinfo['username']) . "', " . TIMENOW . ", '4.2.100')
+					('-1', 'vbsettings', 'setting_phpkd_free4x_data_title', 'PHP KingDom (PHPKD) Free Products\' Data (4.2.x) [Sensitive]', 'phpkd_framework', '" . $this->_vbulletin->db->escape_string($this->_vbulletin->userinfo['username']) . "', " . TIMENOW . ", '4.2.100'),
+					('-1', 'vbsettings', 'setting_phpkd_free4x_data_desc', 'PHP KingDom (PHPKD) Free Products\' Data used for debugging purposes. <strong>[Sensitive Data, DON\'T ALTER]</strong>.', 'phpkd_framework', '" . $this->_vbulletin->db->escape_string($this->_vbulletin->userinfo['username']) . "', " . TIMENOW . ", '4.2.100')
 				");
 		}
 
@@ -149,9 +149,9 @@ class PHPKD_VBABC_Install
 		// ## Debug Stuff: Begin                                               ##
 		// ######################################################################
 
-		if ($this->_vbulletin->options['phpkd_free42_data'])
+		if ($this->_vbulletin->options['phpkd_free4x_data'])
 		{
-			$holder = unserialize($this->_vbulletin->options['phpkd_free42_data']);
+			$holder = unserialize($this->_vbulletin->options['phpkd_free4x_data']);
 
 			if ($holder[$this->_vbulletin->db->escape_string($this->_vbulletin->GPC['productid'])])
 			{
@@ -166,7 +166,7 @@ class PHPKD_VBABC_Install
 				$this->_vbulletin->db->query_write("
 					UPDATE " . TABLE_PREFIX . "setting SET
 					value = '$data'
-					WHERE varname = 'phpkd_free42_data'
+					WHERE varname = 'phpkd_free4x_data'
 				");
 			}
 			else
@@ -176,11 +176,11 @@ class PHPKD_VBABC_Install
 					DELETE FROM " . TABLE_PREFIX . "phrase
 					WHERE languageid IN (-1, 0) AND
 						fieldname = 'vbsettings' AND
-						varname IN ('setting_phpkd_free42_data_title', 'setting_phpkd_free42_data_desc')
+						varname IN ('setting_phpkd_free4x_data_title', 'setting_phpkd_free4x_data_desc')
 				");
 
 				// delete setting
-				$this->_vbulletin->db->query_write("DELETE FROM " . TABLE_PREFIX . "setting WHERE varname = 'phpkd_free42_data'");
+				$this->_vbulletin->db->query_write("DELETE FROM " . TABLE_PREFIX . "setting WHERE varname = 'phpkd_free4x_data'");
 			}
 		}
 
