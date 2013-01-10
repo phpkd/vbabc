@@ -903,7 +903,7 @@ custom|Custom</optioncode>
 			</setting>
 			<setting varname="phpkd_vbabc_daterange" displayorder="160">
 				<datatype>free</datatype>
-				<defaultvalue>2011-2015</defaultvalue>
+				<defaultvalue>2013-2017</defaultvalue>
 			</setting>
 			<setting varname="phpkd_vbabc_script" displayorder="170">
 				<datatype>free</datatype>

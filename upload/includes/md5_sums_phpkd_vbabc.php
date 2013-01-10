@@ -16,16 +16,16 @@
 
 $md5_sums = array(
 	'/' => array(
-		'phpkd_vbabc.php'          => 'b90553b057ceb7272302e3f3f6e71707',
+		'phpkd_vbabc.php'          => '139eb241d830a478820c9ce5c6687df3',
 	),
 	'/includes/phpkd/vbabc' => array(
-		'class_core.php'           => 'c405fc5b641d6537e28d2178f22d0286',
-		'class_dm.php'             => '1094071a63faaaec5b47b64f25f28817',
-		'class_hooks.php'          => '39d6cb7d2f026c284927e80e1f960882',
-		'class_install.php'        => '6eef0d46ef0ba69bf808dff82cc90163',
+		'class_core.php'           => '95c8f37b7244d771ab1589529e632382',
+		'class_dm.php'             => '607cd6032308706565b36d21e4e0cfbe',
+		'class_hooks.php'          => 'e122f9101af9f5adec59e09f2b9fd3f9',
+		'class_install.php'        => '78bf05161dadb075c18a52e819f05f59',
 	),
 	'/includes/xml' => array(
-		'bitfield_phpkd_vbabc.xml' => 'c824d409aa207470c2a791a8a45d38c2',
+		'bitfield_phpkd_vbabc.xml' => 'e7f0628283de3d04bd072d0873087254',
 		'cpnav_phpkd_vbabc.xml'    => 'b26fa7aefc487b941d7ce5dac7bbe67b',
 	),
 );

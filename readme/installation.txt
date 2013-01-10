@@ -32,7 +32,18 @@ Installation Procedure:
 
      2. Import the product's XML file "product-phpkd_vbabc.xml" from AdminCP.
 
-     3. Activate & Configure product's settings as preferred.
+     3. Activate & Configure product's settings and permissions as preferred.
+     * AdminCP Settings:
+	vBulletin AdminCP » vB Automated Bookie Center » Settings
+
+     * Administrator Permissions
+	vBulletin AdminCP » Usergroups » Administrator Permissions » Select Administrator » [Edit Permissions] » Can Administer vB Automated Bookie Center
+
+     * Usergroup Permissions
+	vBulletin AdminCP » Usergroups » Usergroup Manager » Select Usergroup » Edit » PHPKD - vB Automated Bookie Center Permissions
+
+     * Forum Options:
+	vBulletin AdminCP » Forums & Moderators » Forum Manager » Select Forum » Edit » PHPKD - vB Automated Bookie Center Options
 
      4. You're Done :).
 
