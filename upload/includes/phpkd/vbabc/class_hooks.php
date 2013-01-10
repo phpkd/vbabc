@@ -28,7 +28,7 @@ if (!defined('VB_AREA') OR !defined('PHPKD_VBABC') OR @get_class($this) != 'PHPK
  * @category	vB Automated Bookie Center 'Ultimate'
  * @package		PHPKD_VBABC
  * @subpackage	PHPKD_VBABC_Hooks
- * @copyright	Copyright ©2005-2011 PHP KingDom. All Rights Reserved. (http://www.phpkd.net)
+ * @copyright	Copyright ©2005-2013 PHP KingDom. All Rights Reserved. (http://www.phpkd.net)
  * @license		http://info.phpkd.net/en/license/commercial
  */
 class PHPKD_VBABC_Hooks

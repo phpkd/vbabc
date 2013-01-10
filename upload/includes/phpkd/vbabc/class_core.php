@@ -31,7 +31,7 @@ define('PHPKD_VBABC_LICENSE_PREFIX', 'VBABC');
  *
  * @category	vB Automated Bookie Center 'Ultimate'
  * @package		PHPKD_VBABC
- * @copyright	Copyright ©2005-2011 PHP KingDom. All Rights Reserved. (http://www.phpkd.net)
+ * @copyright	Copyright ©2005-2013 PHP KingDom. All Rights Reserved. (http://www.phpkd.net)
  * @license		http://info.phpkd.net/en/license/commercial
  */
 class PHPKD_VBABC
