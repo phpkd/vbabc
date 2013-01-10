@@ -1,7 +1,7 @@
 <?php
 /*==================================================================================*\
 || ################################################################################ ||
-|| # Product Name: vB Automated Bookie Center 'Ultimate'         Version: 4.1.100 # ||
+|| # Product Name: vB Automated Bookie Center 'Ultimate'         Version: 4.2.100 # ||
 || # License Type: Creative Commons - Attribution-Noncommercial-Share Alike 3.0   # ||
 || # ---------------------------------------------------------------------------- # ||
 || # 																			  # ||

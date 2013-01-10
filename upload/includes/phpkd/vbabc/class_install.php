@@ -1,7 +1,7 @@
 <?php
 /*==================================================================================*\
 || ################################################################################ ||
-|| # Product Name: vB Automated Bookie Center 'Ultimate'         Version: 4.1.100 # ||
+|| # Product Name: vB Automated Bookie Center 'Ultimate'         Version: 4.2.100 # ||
 || # License Type: Creative Commons - Attribution-Noncommercial-Share Alike 3.0   # ||
 || # ---------------------------------------------------------------------------- # ||
 || # 																			  # ||
@@ -87,23 +87,21 @@ class PHPKD_VBABC_Install
 		// Import debug data in appropriate field
 		$phpkdinfo['title'] = $info['title'];
 		$phpkdinfo['version'] = $info['version'];
-		$phpkdinfo['revision'] = trim(substr(substr('$Revision$', 10), 0, -1));
-		$phpkdinfo['released'] = trim(substr(substr('$Date$', 6), 0, -1));
 		$phpkdinfo['installdateline'] = TIMENOW;
-		$phpkdinfo['author'] = trim(substr(substr('$Author$', 8), 0, -1));
-		$phpkdinfo['vendor'] = trim(substr(substr('$Vendor: PHP KingDom $', 8), 0, -1));
+		$phpkdinfo['author'] = 'Author: Abdelrahman Omran (http://www.omranic.com)';
+		$phpkdinfo['vendor'] = 'Vendor: PHP KingDom (http://www.phpkd.net)';
 		$phpkdinfo['url'] = $info['url'];
 		$phpkdinfo['versioncheckurl'] = $info['versioncheckurl'];
 
-		if ($this->_vbulletin->options['phpkd_commercial41_data'])
+		if ($this->_vbulletin->options['phpkd_free42_data'])
 		{
-			$holder = unserialize($this->_vbulletin->options['phpkd_commercial41_data']);
+			$holder = unserialize($this->_vbulletin->options['phpkd_free42_data']);
 			$holder[$phpkdinfo['productid']] = $phpkdinfo;
 			$data = $this->_vbulletin->db->escape_string(serialize($holder));
 			$this->_vbulletin->db->query_write("
 				UPDATE " . TABLE_PREFIX . "setting
 				SET value = '$data'
-				WHERE varname = 'phpkd_commercial41_data'
+				WHERE varname = 'phpkd_free42_data'
 			");
 		}
 		else
@@ -115,20 +113,20 @@ class PHPKD_VBABC_Install
 				REPLACE INTO " . TABLE_PREFIX . "setting
 					(varname, grouptitle, value, defaultvalue, datatype, optioncode, displayorder, advanced, volatile, validationcode, blacklist, product)
 				VALUES
-					('phpkd_commercial41_data', 'version', '$data', '', 'free', '', '41100', '0', '1', '', '0', 'phpkd_framework')
+					('phpkd_free42_data', 'version', '$data', '', 'free', '', '42100', '0', '1', '', '0', 'phpkd_framework')
 			");
 
 			$this->_vbulletin->db->query_write("
 				REPLACE INTO " . TABLE_PREFIX . "phrase
 					(languageid, fieldname, varname, text, product, username, dateline, version)
 				VALUES
-					('-1', 'vbsettings', 'setting_phpkd_commercial41_data_title', 'PHP KingDom (PHPKD) Commercial Products\' Data (4.1.x) [Sensitive]', 'phpkd_framework', '" . $this->_vbulletin->db->escape_string($this->_vbulletin->userinfo['username']) . "', " . TIMENOW . ", '4.1.100'),
-					('-1', 'vbsettings', 'setting_phpkd_commercial41_data_desc', 'PHP KingDom (PHPKD) Commercial Products\' Data used for debugging purposes. <strong>[Sensitive Data, DON\'T ALTER]</strong>.', 'phpkd_framework', '" . $this->_vbulletin->db->escape_string($this->_vbulletin->userinfo['username']) . "', " . TIMENOW . ", '4.1.100')
+					('-1', 'vbsettings', 'setting_phpkd_free42_data_title', 'PHP KingDom (PHPKD) Free Products\' Data (4.2.x) [Sensitive]', 'phpkd_framework', '" . $this->_vbulletin->db->escape_string($this->_vbulletin->userinfo['username']) . "', " . TIMENOW . ", '4.2.100'),
+					('-1', 'vbsettings', 'setting_phpkd_free42_data_desc', 'PHP KingDom (PHPKD) Free Products\' Data used for debugging purposes. <strong>[Sensitive Data, DON\'T ALTER]</strong>.', 'phpkd_framework', '" . $this->_vbulletin->db->escape_string($this->_vbulletin->userinfo['username']) . "', " . TIMENOW . ", '4.2.100')
 				");
 		}
 
 		build_options();
-		print_dots_start("Installing: \"" . $phpkdinfo['title'] . "\"<br />Version: " . $phpkdinfo['version'] . ", Revision: " . $phpkdinfo['revision'] . ", Released: " . $phpkdinfo['released'] . ".<br />Thanks for choosing PHP KingDom's Products. If you need any help or wish to try any other products we have, just give us a visit at <a href=\"http://www.phpkd.net\" target=\"_blank\">www.phpkd.net</a>. You are always welcomed.<br />Please Wait...", ':', 'phpkd_vbaddon_install_info');
+		print_dots_start("Installing: \"" . $phpkdinfo['title'] . "\"<br />Version: " . $phpkdinfo['version'] . ".<br />Thanks for choosing PHP KingDom's Products. If you need any help or wish to try any other products we have, just give us a visit at <a href=\"http://www.phpkd.net\" target=\"_blank\">www.phpkd.net</a>. You are always welcomed.<br />Please Wait...", ':', 'phpkd_vbaddon_install_info');
 		print_dots_stop();
 
 		// ######################################################################
@@ -151,14 +149,14 @@ class PHPKD_VBABC_Install
 		// ## Debug Stuff: Begin                                               ##
 		// ######################################################################
 
-		if ($this->_vbulletin->options['phpkd_commercial41_data'])
+		if ($this->_vbulletin->options['phpkd_free42_data'])
 		{
-			$holder = unserialize($this->_vbulletin->options['phpkd_commercial41_data']);
+			$holder = unserialize($this->_vbulletin->options['phpkd_free42_data']);
 
 			if ($holder[$this->_vbulletin->db->escape_string($this->_vbulletin->GPC['productid'])])
 			{
 				$phpkdinfo = $holder[$this->_vbulletin->db->escape_string($this->_vbulletin->GPC['productid'])];
-				print_dots_start("Un-installing: \"" . $phpkdinfo['title'] . "\"<br />Version: " . $phpkdinfo['version'] . ", Revision: " . $phpkdinfo['revision'] . ", Released: " . $phpkdinfo['released'] . ".<br />We are sad to see you un-installing '" . $phpkdinfo['title'] . "'. Please if there is any thing we can do to keep you using this software product, just tell us at <a href=\"http://www.phpkd.net\" target=\"_blank\">www.phpkd.net</a>.<br />Please Wait...", ':', 'phpkd_vbaddon_uninstall_info');
+				print_dots_start("Un-installing: \"" . $phpkdinfo['title'] . "\"<br />Version: " . $phpkdinfo['version'] . ".<br />We are sad to see you un-installing '" . $phpkdinfo['title'] . "'. Please if there is any thing we can do to keep you using this software product, just tell us at <a href=\"http://www.phpkd.net\" target=\"_blank\">www.phpkd.net</a>.<br />Please Wait...", ':', 'phpkd_vbaddon_uninstall_info');
 				unset($holder[$this->_vbulletin->db->escape_string($this->_vbulletin->GPC['productid'])]);
 			}
 
@@ -168,7 +166,7 @@ class PHPKD_VBABC_Install
 				$this->_vbulletin->db->query_write("
 					UPDATE " . TABLE_PREFIX . "setting SET
 					value = '$data'
-					WHERE varname = 'phpkd_commercial41_data'
+					WHERE varname = 'phpkd_free42_data'
 				");
 			}
 			else
@@ -178,11 +176,11 @@ class PHPKD_VBABC_Install
 					DELETE FROM " . TABLE_PREFIX . "phrase
 					WHERE languageid IN (-1, 0) AND
 						fieldname = 'vbsettings' AND
-						varname IN ('setting_phpkd_commercial41_data_title', 'setting_phpkd_commercial41_data_desc')
+						varname IN ('setting_phpkd_free42_data_title', 'setting_phpkd_free42_data_desc')
 				");
 
 				// delete setting
-				$this->_vbulletin->db->query_write("DELETE FROM " . TABLE_PREFIX . "setting WHERE varname = 'phpkd_commercial41_data'");
+				$this->_vbulletin->db->query_write("DELETE FROM " . TABLE_PREFIX . "setting WHERE varname = 'phpkd_free42_data'");
 			}
 		}
 

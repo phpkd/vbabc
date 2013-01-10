@@ -1,7 +1,7 @@
 <?php
 /*==================================================================================*\
 || ################################################################################ ||
-|| # Product Name: vB Automated Bookie Center 'Ultimate'         Version: 4.1.100 # ||
+|| # Product Name: vB Automated Bookie Center 'Ultimate'         Version: 4.2.100 # ||
 || # License Type: Creative Commons - Attribution-Noncommercial-Share Alike 3.0   # ||
 || # ---------------------------------------------------------------------------- # ||
 || # 																			  # ||
@@ -31,6 +31,6 @@ $md5_sums = array(
 );
 
 $md5_sum_softwareid = 'phpkd_vbabc';
-$md5_sum_versions['phpkd_vbabc'] = '4.1.100';
+$md5_sum_versions['phpkd_vbabc'] = '4.2.100';
 
 ?>
