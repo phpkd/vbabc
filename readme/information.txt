@@ -55,10 +55,6 @@ Features:
 
 	     o Include/Exclude Users
 	          - You can specify certain users to be able to use this product's features, or to exclude others from being able to use it at all.
-	          - You've multiple options to choose from:
-		+ Include All Users
-		+ Include Specific Users
-		+ Exclude Specific Users
 	          - Select "Include All Users" to allow all users to be able to use this product's features, or select "Include Specific Users" to allow only those specific users -defined in the following setting-, or select "Exclude Specific Users" to allow all users except those specific users -defined in the following setting-.
 
 	     o Included/Excluded Users
